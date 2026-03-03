@@ -9,7 +9,7 @@ import { Contact } from "./sections/Contact";
 import { Footer } from "./sections/Footer";
 
 function AppContent() {
-  const { isDark } = useTheme();
+  useTheme();
 
   return (
     <>
@@ -49,17 +49,15 @@ function AppContent() {
         />
       </Helmet>
 
-      <div className={isDark ? "dark" : ""}>
-        <Navbar />
-        <main className="bg-white dark:bg-zinc-900">
-          <Hero />
-          <About />
-          <Stack />
-          <Projects />
-          <Contact />
-          <Footer />
-        </main>
-      </div>
+      <Navbar />
+      <main className="bg-white dark:bg-zinc-900">
+        <Hero />
+        <About />
+        <Stack />
+        <Projects />
+        <Contact />
+        <Footer />
+      </main>
     </>
   );
 }
