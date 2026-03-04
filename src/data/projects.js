@@ -6,17 +6,36 @@ export const projects = [
     stack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Render'],
     github: 'https://github.com/abiass/dailytools',
     demo: 'https://dailytoolsproject.vercel.app/',
-    featured: true,
+    featured: false,
   },
   {
     id: 2,
     title: 'Disparador de WhatsApp MultiConta',
     description: 'Sistema de gerenciamento de contatos e campanhas com suporte para múltiplas contas WhatsApp. Alternância automática de contas para reduzir bloqueios. Interface administrativa com persistência em PostgreSQL.',
-    stack: ['Node.js', 'Express', 'PostgreSQL', 'WhatsApp API', 'React'],
+    stack: ['Node.js', 'Express', 'PostgreSQL', 'React', 'Tailwind CSS'],
     github: 'https://github.com/abiass',
+    demo: null,
+    featured: true,
+  },
+  {
+    id: 3,
+    title: 'Acompanhamento de Disparos Flowbiz',
+    description: 'Sistema preparado para operar com ~5 milhões de emails/mês, consolidando dados de envio, aberturas e cliques do Flowbiz com leads e acessos do autobot interno. Substituiu planilhas manuais e horas de trabalho, unificando tudo num dashboard responsivo que correlaciona campanha → leads → acessos.',
+    stack: ['Python (Flask)', 'REST API', 'PostgreSQL', 'React', 'Flowbiz API'],
+    github: 'https://github.com/abiass/Acompanhamento-Disparos-Email',
     demo: null,
     featured: false,
   },
+  {
+    id: 4,
+    title: 'Catálogo de Bases VELOX',
+    description: 'Plataforma web para exportação de grandes bases de dados com autenticação JWT, controle de acesso por permissões, painel administrativo e logging de auditoria. Desenvolvida em Flask com front-end em Jinja2/Tailwind CSS; permite downloads segmentados e elimina planilhas manuais.',
+    stack: ['Python (Flask)', 'Jinja2', 'Tailwind CSS', 'PostgreSQL'],
+    github: 'https://github.com/abiass/Catalago-Bases',
+    demo: null,
+    featured: false,
+  },
+
 ];
 
 export const skills = {

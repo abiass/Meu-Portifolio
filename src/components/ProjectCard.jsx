@@ -24,12 +24,12 @@ export function ProjectCard({ project }) {
         {project.title}
       </h3>
 
-      <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4 line-clamp-2">
+      <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4 line-clamp-8">
         {project.description}
       </p>
 
       <div className="flex flex-wrap gap-2 mb-4">
-        {project.stack.slice(0, 3).map((tech, idx) => {
+        {project.stack.map((tech, idx) => {
           const Icon = stackIcons[tech];
           return (
             <div
@@ -42,11 +42,6 @@ export function ProjectCard({ project }) {
             </div>
           );
         })}
-        {project.stack.length > 3 && (
-          <span className="px-2 py-1 bg-zinc-100 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-400 text-xs rounded font-medium">
-            +{project.stack.length - 3}
-          </span>
-        )}
       </div>
 
       <div className="flex gap-3">
@@ -71,7 +66,7 @@ export function ProjectCard({ project }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Demo
+            Deploy
           </motion.a>
         )}
       </div>

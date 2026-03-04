@@ -43,7 +43,7 @@ export function Projects() {
     },
   };
 
-  const featuredProject = projects.find((p) => p.featured);
+  const featuredProjects = projects.filter((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
 
   return (
@@ -59,9 +59,10 @@ export function Projects() {
           Projetos
         </motion.h2>
 
-        {/* Featured Project */}
-        {featuredProject && (
+        {/* Featured Projects */}
+        {featuredProjects.map((featuredProject) => (
           <motion.div
+            key={featuredProject.id}
             variants={itemVariants}
             initial="hidden"
             whileInView="visible"
@@ -84,19 +85,11 @@ export function Projects() {
                 <div className="mb-6">
                   <TechStack techs={featuredProject.stack} />
                 </div>
-                <div className="flex gap-4">
-                  {featuredProject.github && (
-                    <motion.a
-                      href={featuredProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-3 bg-zinc-900 dark:bg-zinc-600 text-white font-semibold rounded-lg hover:bg-indigo-600 transition-colors inline-block"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Ver Código
-                    </motion.a>
-                  )}
+                <div className="flex gap-4 items-center">
+                  {/* GitHub button removed - show validation text instead */}
+                  <span className="text-zinc-600 dark:text-zinc-400 italic">
+                    Em processo de validação para deploy
+                  </span>
                   {featuredProject.demo && (
                     <motion.a
                       href={featuredProject.demo}
@@ -113,7 +106,7 @@ export function Projects() {
               </div>
             </div>
           </motion.div>
-        )}
+        ))}
 
         {/* Other Projects */}
         <motion.div
