@@ -19,23 +19,23 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 w-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md z-50 border-b border-zinc-200 dark:border-zinc-800"
+      className="fixed top-0 w-full bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl z-50 border-b border-zinc-200 dark:border-zinc-800 shadow-sm"
     >
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-5 flex items-center justify-between">
         <motion.div
-          className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
+          className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 tracking-tight"
           whileHover={{ scale: 1.05 }}
         >
           Abias
         </motion.div>
 
-        <div className="flex items-center gap-8">
-          <div className="hidden md:flex gap-6">
+        <div className="flex items-center gap-10">
+          <div className="hidden md:flex gap-8">
             {navItems.map((item) => (
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="group relative text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm font-medium pb-1"
+                className="group relative text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm font-medium pb-2"
                 whileHover={{ scale: 1.05 }}
               >
                 {item.label}

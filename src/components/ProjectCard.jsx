@@ -18,26 +18,26 @@ export function ProjectCard({ project }) {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       whileHover={{ y: -5, scale: 1.02 }}
-      className="group bg-white dark:bg-zinc-800 rounded-lg p-6 border border-zinc-200 dark:border-zinc-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all shadow-md dark:shadow-lg"
+      className="group bg-white dark:bg-zinc-800 rounded-xl p-7 border border-zinc-200 dark:border-zinc-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl dark:shadow-lg dark:hover:shadow-xl"
     >
-      <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors text-zinc-900 dark:text-white">
+      <h3 className="text-xl font-bold mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors text-zinc-900 dark:text-white">
         {project.title}
       </h3>
 
-      <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4 line-clamp-8">
+      <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-5 line-clamp-3 leading-relaxed">
         {project.description}
       </p>
 
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mb-6">
         {project.stack.map((tech, idx) => {
           const Icon = stackIcons[tech];
           return (
             <div
               key={idx}
-              className="flex items-center gap-1 px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs rounded font-medium"
+              className="flex items-center gap-1 px-3 py-1.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs rounded-lg font-medium border border-indigo-200 dark:border-indigo-800/30 hover:border-indigo-400 dark:hover:border-indigo-600 transition-colors"
               title={tech}
             >
-              {Icon && <Icon size={12} />}
+              {Icon && <Icon size={13} />}
               <span>{tech}</span>
             </div>
           );
@@ -50,7 +50,7 @@ export function ProjectCard({ project }) {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 py-2 px-3 bg-zinc-900 dark:bg-zinc-700 text-white text-sm font-medium rounded hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 transition-colors text-center shadow-sm"
+            className="flex-1 py-2.5 px-4 bg-zinc-900 dark:bg-zinc-700 text-white text-sm font-semibold rounded-lg hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 transition-all text-center shadow-sm"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -62,7 +62,7 @@ export function ProjectCard({ project }) {
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 py-2 px-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white text-sm font-medium rounded hover:opacity-90 transition-colors text-center shadow-sm"
+            className="flex-1 py-2.5 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-all text-center shadow-sm"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

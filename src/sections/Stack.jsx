@@ -31,14 +31,14 @@ export function Stack() {
   };
 
   return (
-    <section id="stack" className="py-20 bg-alt">
-      <div className="max-w-4xl mx-auto px-4">
+    <section id="stack" className="py-24 bg-alt">
+      <div className="max-w-5xl mx-auto px-4 md:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-zinc-900 dark:text-white mb-12 text-center"
+          className="text-5xl font-bold mb-14 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
         >
           Stack Técnica
         </motion.h2>
@@ -52,8 +52,8 @@ export function Stack() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="bg-zinc-50 dark:bg-zinc-800 rounded-lg p-6 h-full hover:shadow-lg transition-shadow">
-                <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-4 capitalize">
+              <div className="bg-white dark:bg-zinc-800 rounded-xl p-7 h-full hover:shadow-lg transition-shadow border border-zinc-100 dark:border-zinc-700 flex flex-col items-center">
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-5 capitalize tracking-wide text-center">
                   {category === "other"
                     ? "Outros"
                     : category === "database"
@@ -67,7 +67,7 @@ export function Stack() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-100px" }}
-                  className="space-y-3"
+                  className="space-y-3.5 mx-auto"
                 >
                   {techs.map((tech, idx) => {
                     const Icon = tech.icon;
@@ -75,21 +75,21 @@ export function Stack() {
                       <motion.li
                         key={idx}
                         variants={itemVariants}
-                        className="text-zinc-600 dark:text-zinc-400 flex items-center gap-2 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                        className="text-zinc-700 dark:text-zinc-300 flex items-center gap-3 hover:text-zinc-900 dark:hover:text-white transition-colors group"
                       >
                         {Icon ? (
                           <Icon
                             size={20}
                             style={{ color: tech.color }}
-                            className="flex-shrink-0"
+                            className="flex-shrink-0 group-hover:scale-110 transition-transform"
                           />
                         ) : (
                           <span
-                            className="w-5 h-5 rounded-full flex-shrink-0"
+                            className="w-5 h-5 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform"
                             style={{ backgroundColor: tech.color }}
                           />
                         )}
-                        <span className="text-sm font-medium">{tech.name}</span>
+                        <span className="font-medium text-sm">{tech.name}</span>
                       </motion.li>
                     );
                   })}

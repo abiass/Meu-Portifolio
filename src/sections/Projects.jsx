@@ -47,14 +47,14 @@ export function Projects() {
   const otherProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-20 bg-alt">
-      <div className="max-w-5xl mx-auto px-4">
+    <section id="projects" className="py-24 bg-alt">
+      <div className="max-w-5xl mx-auto px-4 md:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
+          className="text-5xl font-bold mb-14 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
         >
           Projetos
         </motion.h2>
@@ -67,27 +67,26 @@ export function Projects() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-12"
+            className="mb-14"
           >
-            <div className="bg-white dark:bg-zinc-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow border-l-4 border-indigo-600 dark:border-indigo-500">
-              <div className="p-8">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="px-3 py-1 bg-indigo-600 dark:bg-indigo-500 text-white text-xs font-bold rounded-full">
-                    EM DESTAQUE
+            <div className="bg-white dark:bg-zinc-700 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all border-l-4 border-indigo-600 dark:border-indigo-500">
+              <div className="p-10 md:p-12">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="px-4 py-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white text-xs font-bold rounded-full tracking-wide">
+                    DESTAQUE
                   </span>
                 </div>
-                <h3 className="text-3xl font-bold text-zinc-900 dark:text-white mb-4">
+                <h3 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-5">
                   {featuredProject.title}
                 </h3>
-                <p className="text-zinc-600 dark:text-zinc-400 text-lg mb-6">
+                <p className="text-zinc-700 dark:text-zinc-300 text-lg mb-8 leading-relaxed">
                   {featuredProject.description}
                 </p>
-                <div className="mb-6">
+                <div className="mb-8">
                   <TechStack techs={featuredProject.stack} />
                 </div>
                 <div className="flex gap-4 items-center">
-                  {/* GitHub button removed - show validation text instead */}
-                  <span className="text-zinc-600 dark:text-zinc-400 italic">
+                  <span className="text-zinc-500 dark:text-zinc-400 italic text-sm">
                     Em processo de validação para deploy
                   </span>
                   {featuredProject.demo && (
@@ -95,7 +94,7 @@ export function Projects() {
                       href={featuredProject.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors inline-block"
+                      className="px-7 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-semibold rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl inline-block"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -114,7 +113,7 @@ export function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-2 gap-6"
+          className="grid md:grid-cols-2 gap-7"
         >
           {otherProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
