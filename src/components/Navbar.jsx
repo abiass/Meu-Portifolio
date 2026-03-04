@@ -23,7 +23,7 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <motion.div
-          className="text-2xl font-bold text-indigo-600 dark:text-indigo-400"
+          className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
           whileHover={{ scale: 1.05 }}
         >
           Abias
@@ -35,10 +35,11 @@ export function Navbar() {
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm font-medium"
+                className="group relative text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm font-medium pb-1"
                 whileHover={{ scale: 1.05 }}
               >
                 {item.label}
+                <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-600 dark:bg-indigo-400 transition-all group-hover:w-full"></span>
               </motion.button>
             ))}
           </div>

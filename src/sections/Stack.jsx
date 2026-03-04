@@ -31,7 +31,7 @@ export function Stack() {
   };
 
   return (
-    <section id="stack" className="py-20 bg-white dark:bg-zinc-900">
+    <section id="stack" className="py-20 bg-alt">
       <div className="max-w-4xl mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export function Stack() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="bg-zinc-50 dark:bg-zinc-800 rounded-lg p-6 h-full">
+              <div className="bg-zinc-50 dark:bg-zinc-800 rounded-lg p-6 h-full hover:shadow-lg transition-shadow">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-4 capitalize">
                   {category === "other"
                     ? "Outros"

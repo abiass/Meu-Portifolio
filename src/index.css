@@ -24,6 +24,36 @@ html.dark body {
   color: #fafafa;
 }
 
+/* custom CSS variables for theming */
+:root {
+  --accent-light: #4f46e5;
+  --accent-dark: #6366f1;
+  --bg-alt-light: #f3f4f6;
+  --bg-alt-dark: #1f2937;
+}
+
+html.dark {
+  --accent: var(--accent-dark);
+  --bg-alt: var(--bg-alt-dark);
+}
+
+html:not(.dark) {
+  --accent: var(--accent-light);
+  --bg-alt: var(--bg-alt-light);
+}
+
+/* utility class to apply alternate BG color */
+.bg-alt {
+  background-color: var(--bg-alt);
+  transition: background-color 0.3s ease;
+}
+
+/* smooth color transitions for all text and backgrounds */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 8px;

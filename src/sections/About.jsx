@@ -21,7 +21,7 @@ export function About() {
   };
 
   return (
-    <section id="about" className="py-20 bg-zinc-50 dark:bg-zinc-800">
+    <section id="about" className="py-20 bg-alt">
       <div className="max-w-4xl mx-auto px-4">
         <motion.div
           variants={containerVariants}
@@ -52,8 +52,8 @@ export function About() {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <div className="bg-white dark:bg-zinc-700 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-4">
+              <div className="bg-white dark:bg-zinc-700 rounded-lg p-6 shadow-lg dark:shadow-none">
+                <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
                   Informação de Contato
                 </h3>
                 <ul className="space-y-3 text-zinc-600 dark:text-zinc-400">

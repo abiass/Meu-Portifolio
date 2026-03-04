@@ -8,7 +8,7 @@ export function ThemeToggle() {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="p-2 rounded-lg bg-zinc-200 dark:bg-zinc-700 text-zinc-900 dark:text-yellow-300 hover:bg-zinc-300 dark:hover:bg-zinc-600 transition-colors"
+      className="p-2 rounded-lg bg-gradient-to-r from-indigo-200 to-purple-200 dark:from-zinc-700 dark:to-zinc-900 text-zinc-900 dark:text-yellow-300 hover:opacity-90 transition-all"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle theme"

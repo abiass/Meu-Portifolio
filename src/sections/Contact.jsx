@@ -21,7 +21,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-zinc-900">
+    <section id="contact" className="py-20 bg-alt">
       <div className="max-w-2xl mx-auto px-4">
         <motion.div
           variants={containerVariants}
@@ -31,7 +31,7 @@ export function Contact() {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl font-bold text-zinc-900 dark:text-white mb-4 text-center"
+            className="text-4xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
           >
             Entre em Contato
           </motion.h2>
@@ -52,7 +52,7 @@ export function Contact() {
               href="https://linkedin.com/in/abiasmelo"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-zinc-100 dark:bg-zinc-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 rounded-lg transition-colors"
+              className="p-4 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 hover:from-indigo-500 hover:to-purple-500 hover:text-white rounded-lg transition-all shadow hover:shadow-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="LinkedIn"
@@ -66,7 +66,7 @@ export function Contact() {
               href="https://github.com/abiass"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-zinc-100 dark:bg-zinc-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 rounded-lg transition-colors"
+              className="p-4 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 hover:from-indigo-500 hover:to-purple-500 hover:text-white rounded-lg transition-all shadow hover:shadow-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="GitHub"
@@ -78,7 +78,7 @@ export function Contact() {
 
             <motion.a
               href="mailto:abias.melo@hotmail.com"
-              className="p-4 bg-zinc-100 dark:bg-zinc-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 rounded-lg transition-colors"
+              className="p-4 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 hover:from-indigo-500 hover:to-purple-500 hover:text-white rounded-lg transition-all shadow hover:shadow-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Email"

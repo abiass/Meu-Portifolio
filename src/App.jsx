@@ -50,7 +50,7 @@ function AppContent() {
       </Helmet>
 
       <Navbar />
-      <main className="bg-white dark:bg-zinc-900">
+      <main className="bg-alt">
         <Hero />
         <About />
         <Stack />

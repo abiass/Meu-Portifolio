@@ -12,7 +12,7 @@ export function Footer() {
         viewport={{ once: true }}
         className="max-w-5xl mx-auto px-4 text-center"
       >
-        <h3 className="text-2xl font-bold mb-4">Abias Melo</h3>
+        <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">Abias Melo</h3>
         <p className="text-zinc-400 mb-4">
           Desenvolvedor Full Stack | React | Node.js | PostgreSQL
         </p>

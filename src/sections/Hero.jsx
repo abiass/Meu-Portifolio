@@ -44,7 +44,7 @@ export function Hero() {
       >
         <motion.div variants={itemVariants} className="mb-6">
           <motion.h1
-            className="text-5xl md:text-7xl font-bold text-zinc-900 dark:text-white mb-4 leading-tight"
+            className="text-5xl md:text-7xl font-bold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
@@ -90,7 +90,7 @@ export function Hero() {
         >
           <motion.button
             onClick={() => scrollToSection("projects")}
-            className="px-8 py-3 bg-indigo-600 dark:bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
+            className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-semibold rounded-lg hover:opacity-90 transition-all shadow-lg dark:shadow-none"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -99,7 +99,7 @@ export function Hero() {
           <motion.a
             href="#contact"
             onClick={() => scrollToSection("contact")}
-            className="px-8 py-3 border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 font-semibold rounded-lg hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 transition-colors"
+            className="px-8 py-3 border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 font-semibold rounded-lg hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 transition-colors shadow-inner"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

@@ -47,14 +47,14 @@ export function Projects() {
   const otherProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-20 bg-zinc-50 dark:bg-zinc-800">
+    <section id="projects" className="py-20 bg-alt">
       <div className="max-w-5xl mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-zinc-900 dark:text-white mb-12 text-center"
+          className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
         >
           Projetos
         </motion.h2>
@@ -69,7 +69,7 @@ export function Projects() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-12"
           >
-            <div className="bg-white dark:bg-zinc-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-white dark:bg-zinc-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow border-l-4 border-indigo-600 dark:border-indigo-500">
               <div className="p-8">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="px-3 py-1 bg-indigo-600 dark:bg-indigo-500 text-white text-xs font-bold rounded-full">
