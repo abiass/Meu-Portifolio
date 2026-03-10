@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background-color: white;
+  color: #18181b;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark body {
+  background-color: #09090b;
+  color: #fafafa;
+}
+
+/* custom CSS variables for theming */
+:root {
+  --accent-light: #4f46e5;
+  --accent-dark: #6366f1;
+  --bg-alt-light: #f3f4f6;
+  --bg-alt-dark: #1f2937;
+}
+
+html.dark {
+  --accent: var(--accent-dark);
+  --bg-alt: var(--bg-alt-dark);
+}
+
+html:not(.dark) {
+  --accent: var(--accent-light);
+  --bg-alt: var(--bg-alt-light);
+}
+
+/* utility class to apply alternate BG color */
+.bg-alt {
+  background-color: var(--bg-alt);
+  transition: background-color 0.3s ease;
+}
+
+/* smooth color transitions for all text and backgrounds */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(79, 70, 229, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 70, 229, 0.8);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.6);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.8);
+}
+
+/* Animation Classes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Selection Styling */
+::selection {
+  background-color: rgba(79, 70, 229, 0.3);
+  color: inherit;
+}
+
+html.dark ::selection {
+  background-color: rgba(99, 102, 241, 0.3);
+}
