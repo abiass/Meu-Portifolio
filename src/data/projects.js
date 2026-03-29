@@ -23,7 +23,7 @@ export const projects = [
       '/disparosmais/disparosmais7.jpeg',
       '/disparosmais/disparosmais8.jpeg',
     ],
-    github: 'https://github.com/abiass',
+    github: null,
     demo: 'https://disparosmais.com.br',
     featured: true,
   },
@@ -45,7 +45,15 @@ export const projects = [
     demo: null,
     featured: false,
   },
-
+  {
+    id: 5,
+    title: 'Landing Page DisparosMais',
+    description: 'Landing page promocional desenvolvida em HTML/CSS, integrada ao projeto do disparador. Hospedada no domínio principal e pensada para conversão e performance.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    github: null,
+    demo: 'https://disparosmais.com.br/lp.html',
+    featured: true,
+  },
 ];
 
 export const skills = {
