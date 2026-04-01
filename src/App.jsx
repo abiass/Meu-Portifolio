@@ -1,4 +1,5 @@
 import { HelmetProvider, Helmet } from "react-helmet-async";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useTheme } from "./hooks/useTheme";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./sections/Hero";
@@ -66,6 +67,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <AppContent />
+      <SpeedInsights />
     </HelmetProvider>
   );
 }
