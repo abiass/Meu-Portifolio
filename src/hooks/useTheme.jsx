@@ -5,7 +5,6 @@ export function useTheme() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Verificar localStorage ou preferência do sistema
     const saved = localStorage.getItem("theme");
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)",
@@ -15,7 +14,6 @@ export function useTheme() {
     setIsDark(shouldBeDark);
     setMounted(true);
 
-    // Aplicar classe imediatamente no html
     const root = document.documentElement;
     if (shouldBeDark) {
       root.classList.add("dark");
@@ -27,10 +25,8 @@ export function useTheme() {
   useEffect(() => {
     if (!mounted) return;
 
-    // Atualizar localStorage
     localStorage.setItem("theme", isDark ? "dark" : "light");
 
-    // Atualizar classe do documento
     const root = document.documentElement;
     if (isDark) {
       root.classList.add("dark");
@@ -39,8 +35,23 @@ export function useTheme() {
     }
   }, [isDark, mounted]);
 
+  useEffect(() => {
+    const handleThemeChange = (event) => {
+      if (event?.detail?.isDark != null) {
+        setIsDark(event.detail.isDark);
+      }
+    };
+
+    window.addEventListener("theme-change", handleThemeChange);
+    return () => window.removeEventListener("theme-change", handleThemeChange);
+  }, []);
+
   const toggleTheme = () => {
-    setIsDark(!isDark);
+    const nextDark = !isDark;
+    setIsDark(nextDark);
+    window.dispatchEvent(
+      new CustomEvent("theme-change", { detail: { isDark: nextDark } }),
+    );
   };
 
   return { isDark, toggleTheme, mounted };

@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
+import { useTheme } from "../hooks/useTheme";
 
 export function Navbar() {
+  const { isDark } = useTheme();
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -23,10 +26,14 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-5 flex items-center justify-between">
         <motion.div
-          className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 tracking-tight"
+          className="flex items-center justify-center rounded-full bg-transparent h-10 w-26"
           whileHover={{ scale: 1.05 }}
         >
-          Abias
+          <img
+            src={isDark ? "/icon%20-%20Copia.png" : "/icon.png"}
+            alt="Logo do portfólio"
+            className="h-28 w-28 object-cover rounded-full"
+          />
         </motion.div>
 
         <div className="flex items-center gap-10">
