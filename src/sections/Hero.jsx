@@ -35,16 +35,26 @@ export function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white dark:bg-zinc-900 pt-20">
+    <section className="min-h-screen relative flex items-center justify-center overflow-hidden bg-white dark:bg-zinc-950 pt-20">
+      
+      {/* Background Decorativo: Dots / Radials */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[rgba(238,242,255,0.4)] dark:bg-[rgba(9,9,11,1)] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
+        {/* Glowing Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-400/20 dark:bg-indigo-600/20 rounded-full mix-blend-multiply blur-3xl filter opacity-70 animate-blob"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/20 rounded-full mix-blend-multiply blur-3xl filter opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-32 left-1/2 w-96 h-96 bg-pink-400/20 dark:bg-pink-600/20 rounded-full mix-blend-multiply blur-3xl filter opacity-70 animate-blob animation-delay-4000"></div>
+      </div>
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="text-center max-w-3xl px-4 md:px-6"
+        className="text-center max-w-3xl px-4 md:px-6 relative z-10"
       >
         <motion.div variants={itemVariants} className="mb-8">
           <motion.h1
-            className="text-6xl md:text-8xl font-bold mb-4 leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
+            className="font-display text-6xl md:text-8xl font-extrabold mb-4 leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
@@ -53,7 +63,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="mb-8">
-          <p className="text-2xl md:text-3xl text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide">
+          <p className="font-display text-2xl md:text-3xl text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide">
             Desenvolvedor Fullstack
           </p>
         </motion.div>

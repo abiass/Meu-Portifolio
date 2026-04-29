@@ -52,7 +52,7 @@ export function Contact() {
               href="https://linkedin.com/in/abiasmelo"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 hover:from-indigo-500 hover:to-purple-500 hover:text-white rounded-lg transition-all shadow-md hover:shadow-lg"
+              className="p-4 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 hover:from-indigo-500 hover:to-purple-500 hover:text-white dark:hover:text-white rounded-lg transition-all shadow-md hover:shadow-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="LinkedIn"
@@ -66,7 +66,7 @@ export function Contact() {
               href="https://github.com/abiass"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 hover:from-indigo-500 hover:to-purple-500 hover:text-white rounded-lg transition-all shadow hover:shadow-lg"
+              className="p-4 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 hover:from-indigo-500 hover:to-purple-500 hover:text-white dark:hover:text-white rounded-lg transition-all shadow hover:shadow-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="GitHub"

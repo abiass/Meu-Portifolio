@@ -144,7 +144,7 @@ export function Projects() {
                         href={featuredProject.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-3 bg-zinc-900 dark:bg-zinc-600 text-white font-semibold rounded-lg hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 transition-all shadow inline-block"
+                        className="px-6 py-3 bg-zinc-900 dark:bg-zinc-600 text-white text-sm font-semibold rounded-lg hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 transition-all shadow inline-block"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -156,14 +156,38 @@ export function Projects() {
                         href={featuredProject.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-7 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-semibold rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl inline-block"
+                        className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl inline-block"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
                         Ver Deploy
                       </motion.a>
                     )}
-                    {!featuredProject.demo && (
+                    {featuredProject.whatsapp && (
+                      <motion.a
+                        href={featuredProject.whatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-500 transition-all shadow inline-block"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Grupo WhatsApp
+                      </motion.a>
+                    )}
+                    {featuredProject.telegram && (
+                      <motion.a
+                        href={featuredProject.telegram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 bg-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-blue-400 transition-all shadow inline-block"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Grupo Telegram
+                      </motion.a>
+                    )}
+                    {!featuredProject.demo && !featuredProject.whatsapp && !featuredProject.telegram && (
                       <span className="text-zinc-500 dark:text-zinc-400 italic text-sm">
                         Em processo de validação para deploy
                       </span>

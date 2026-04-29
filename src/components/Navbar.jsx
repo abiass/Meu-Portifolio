@@ -22,7 +22,7 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 w-full bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl z-50 border-b border-zinc-200 dark:border-zinc-800 shadow-sm"
+      className="fixed top-0 w-full bg-white/70 dark:bg-zinc-950/70 backdrop-blur-2xl z-50 border-b border-zinc-200/50 dark:border-zinc-800/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)]"
     >
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-5 flex items-center justify-between">
         <motion.div

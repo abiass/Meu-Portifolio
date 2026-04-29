@@ -69,6 +69,30 @@ export function ProjectCard({ project }) {
             Deploy
           </motion.a>
         )}
+        {project.whatsapp && (
+          <motion.a
+            href={project.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 py-2.5 px-4 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-500 transition-all text-center shadow-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            WhatsApp
+          </motion.a>
+        )}
+        {project.telegram && (
+          <motion.a
+            href={project.telegram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 py-2.5 px-4 bg-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-blue-400 transition-all text-center shadow-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Telegram
+          </motion.a>
+        )}
       </div>
     </motion.div>
   );

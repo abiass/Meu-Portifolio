@@ -11,7 +11,17 @@ import {
   FaGithub,
   FaGitAlt,
 } from 'react-icons/fa';
-import { SiTailwindcss, SiBootstrap, SiExpress, SiFlask, SiPostgresql, SiMysql } from 'react-icons/si';
+import {
+  SiTailwindcss,
+  SiBootstrap,
+  SiExpress,
+  SiFlask,
+  SiPostgresql,
+  SiMysql,
+  SiVite,
+  SiWhatsapp,
+  SiTelegram,
+} from 'react-icons/si';
 
 export const skillsWithIcons = {
   frontend: [
@@ -21,6 +31,7 @@ export const skillsWithIcons = {
     { name: 'CSS3', icon: FaCss3Alt, color: '#1572b6' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06b6d4' },
     { name: 'Bootstrap', icon: SiBootstrap, color: '#7952b3' },
+    { name: 'Vite', icon: SiVite, color: '#646cff' },
   ],
   backend: [
     { name: 'Node.js', icon: FaNode, color: '#68a063' },
@@ -41,6 +52,8 @@ export const skillsWithIcons = {
     { name: 'CI/CD', icon: null, color: '#6366f1' },
     { name: 'JWT', icon: null, color: '#6366f1' },
     { name: '2FA', icon: null, color: '#6366f1' },
+    { name: 'WhatsApp API', icon: SiWhatsapp, color: '#25D366' },
+    { name: 'Telegram API', icon: SiTelegram, color: '#0088cc' },
   ],
 };
 
@@ -50,9 +63,11 @@ export const stackIcons = {
   'Express': SiExpress,
   'PostgreSQL': SiPostgresql,
   'Tailwind CSS': SiTailwindcss,
+  'Vite': SiVite,
   'Vercel': null,
   'Render': null,
-  'WhatsApp API': null,
+  'WhatsApp API': SiWhatsapp,
+  'Telegram API': SiTelegram,
   'Python': FaPython,
   'Flask': SiFlask,
   'MySQL': SiMysql,
