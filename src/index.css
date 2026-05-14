@@ -127,3 +127,29 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 html.dark ::selection {
   background-color: rgba(99, 102, 241, 0.3);
 }
+
+/* Focus ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Section separator utility */
+.section-divider {
+  width: 40px;
+  height: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #6366f1, #a855f7);
+  margin-bottom: 1.5rem;
+}

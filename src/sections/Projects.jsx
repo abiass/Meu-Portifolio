@@ -91,16 +91,34 @@ export function Projects() {
   const otherProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-24 bg-alt">
-      <div className="max-w-6xl mx-auto px-4 md:px-6">
+    <section id="projects" className="py-28 bg-zinc-50 dark:bg-zinc-900/50">
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
+
+        {/* Section Label */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-3 mb-4"
+        >
+          <span className="text-xs font-bold tracking-widest text-indigo-500 dark:text-indigo-400 uppercase">
+            03 — Projetos
+          </span>
+          <span className="flex-1 h-px bg-indigo-200 dark:bg-indigo-900 max-w-[80px]" />
+        </motion.div>
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-bold mb-14 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
+          className="font-display text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-14"
         >
-          Projetos
+          O que já{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+            construí
+          </span>
         </motion.h2>
 
         {/* Featured Projects */}

@@ -20,11 +20,11 @@ export function ProjectCard({ project }) {
       whileHover={{ y: -5, scale: 1.02 }}
       className="group bg-white dark:bg-zinc-800 rounded-xl p-7 border border-zinc-200 dark:border-zinc-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl dark:shadow-lg dark:hover:shadow-xl"
     >
-      <h3 className="text-xl font-bold mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors text-zinc-900 dark:text-white">
+      <h3 className="text-xl font-bold mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors text-zinc-900 dark:text-white break-normal whitespace-normal">
         {project.title}
       </h3>
 
-      <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-5 line-clamp-3 leading-relaxed">
+      <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-5 leading-relaxed break-normal whitespace-normal">
         {project.description}
       </p>
 
