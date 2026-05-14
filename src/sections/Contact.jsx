@@ -6,8 +6,8 @@ import { FiExternalLink } from "react-icons/fi";
 const contactLinks = [
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/abias-samuel",
-    href: "https://www.linkedin.com/in/abias-samuel-0927aa196/",
+    value: "linkedin.com/in/abiasmelo",
+    href: "www.linkedin.com/in/abiasmelo",
     icon: FaLinkedin,
     accent: "hover:border-blue-500 dark:hover:border-blue-400",
     iconColor: "#0a66c2",
@@ -34,7 +34,6 @@ export function Contact() {
   return (
     <section id="contact" className="py-28 bg-white dark:bg-zinc-950">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
-
         {/* Section Label */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -88,7 +87,10 @@ export function Contact() {
             {/* Right: Location + links */}
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-zinc-500 dark:text-zinc-400 text-sm">
-                <HiLocationMarker size={18} className="text-indigo-400 flex-shrink-0" />
+                <HiLocationMarker
+                  size={18}
+                  className="text-indigo-400 flex-shrink-0"
+                />
                 <span>Maringá, PR — Brasil · remoto ou híbrido</span>
               </div>
 
@@ -105,19 +107,29 @@ export function Contact() {
                     className={`flex items-center gap-4 p-4 rounded-xl border border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 ${link.accent} transition-all group`}
                     whileHover={{ x: 4 }}
                   >
-                    <Icon size={20} style={{ color: link.iconColor }} className="flex-shrink-0" />
+                    <Icon
+                      size={20}
+                      style={{ color: link.iconColor }}
+                      className="flex-shrink-0"
+                    />
                     <div className="flex-1 min-w-0">
-                      <div className="text-xs text-zinc-400 dark:text-zinc-500 mb-0.5">{link.label}</div>
-                      <div className="text-sm font-medium text-zinc-800 dark:text-zinc-200 truncate">{link.value}</div>
+                      <div className="text-xs text-zinc-400 dark:text-zinc-500 mb-0.5">
+                        {link.label}
+                      </div>
+                      <div className="text-sm font-medium text-zinc-800 dark:text-zinc-200 truncate">
+                        {link.value}
+                      </div>
                     </div>
-                    <FiExternalLink size={14} className="text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                    <FiExternalLink
+                      size={14}
+                      className="text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                    />
                   </motion.a>
                 );
               })}
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );
