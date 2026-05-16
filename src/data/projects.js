@@ -48,8 +48,8 @@ export const projects = [
   {
     id: 5,
     title: 'Landing Page DisparosMais',
-    description: 'Landing page promocional desenvolvida em HTML/CSS, integrada ao projeto do disparador. Hospedada no domínio principal e pensada para conversão e performance.',
-    stack: ['HTML', 'CSS', 'JavaScript'],
+    description: 'Landing page promocional desenvolvida em HTML/CSS, integrada ao projeto do disparador e à API do Mercado Pago para pagamentos. Hospedada no domínio principal, otimizada para conversão e performance.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'Mercado Pago'],
     github: null,
     demo: 'https://disparosmais.com.br/',
     featured: true,
@@ -80,6 +80,15 @@ export const projects = [
     github: null,
     demo: null,
     featured: true,
+  },
+  {
+    id: 7,
+    title: 'Leads-Discadora',
+    description: 'Aplicação corporativa de distribuição e acompanhamento de leads com painel administrativo, controle de consultores e discadora integrada. Implementada em Flask com agendamento round-robin, filas Celery/Redis e persistência PostgreSQL.',
+    stack: ['Python (Flask)', 'Flask-Login', 'Flask-Limiter', 'Flask-SQLAlchemy', 'PostgreSQL', 'Celery', 'Redis', 'APScheduler', 'HTML', 'CSS'],
+    github: 'https://github.com/abiass/Leads-Discadora',
+    demo: null,
+    featured: false,
   },
 ];
 

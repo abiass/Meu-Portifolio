@@ -8,10 +8,26 @@ const stats = [
 ];
 
 const values = [
-  { icon: FiCode, title: "Código Limpo", desc: "Arquitetura organizada, legível e escalável." },
-  { icon: FiServer, title: "Backend Sólido", desc: "APIs seguras, performáticas e bem documentadas." },
-  { icon: FiShield, title: "Segurança", desc: "Autenticação, validação e boas práticas de segurança." },
-  { icon: FiZap, title: "Entrega Rápida", desc: "CI/CD, deploys automatizados e iterações ágeis." },
+  {
+    icon: FiCode,
+    title: "Código Limpo",
+    desc: "Arquitetura organizada, legível e escalável.",
+  },
+  {
+    icon: FiServer,
+    title: "Backend Sólido",
+    desc: "APIs seguras, performáticas e bem documentadas.",
+  },
+  {
+    icon: FiShield,
+    title: "Segurança",
+    desc: "Autenticação, validação e boas práticas de segurança.",
+  },
+  {
+    icon: FiZap,
+    title: "Entrega Rápida",
+    desc: "CI/CD, deploys automatizados e iterações ágeis.",
+  },
 ];
 
 const itemVariants = {
@@ -23,7 +39,6 @@ export function About() {
   return (
     <section id="about" className="py-28 bg-white dark:bg-zinc-950">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
-
         {/* Section Label */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -53,17 +68,27 @@ export function About() {
               </span>
             </h2>
             <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-              Sou um Desenvolvedor Full Stack com foco em sistemas corporativos de
-              alto impacto. Trabalho da concepção à produção — do banco de dados à
-              interface — sempre com foco em <strong className="text-zinc-900 dark:text-white">qualidade</strong>,{" "}
-              <strong className="text-zinc-900 dark:text-white">segurança</strong> e{" "}
-              <strong className="text-zinc-900 dark:text-white">performance</strong>.
+              Sou um Desenvolvedor Full Stack com foco em sistemas corporativos
+              de alto impacto. Trabalho da concepção à produção, do banco de
+              dados à interface e sempre com foco em{" "}
+              <strong className="text-zinc-900 dark:text-white">
+                qualidade
+              </strong>
+              ,{" "}
+              <strong className="text-zinc-900 dark:text-white">
+                segurança
+              </strong>{" "}
+              e{" "}
+              <strong className="text-zinc-900 dark:text-white">
+                performance
+              </strong>
+              .
             </p>
             <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Já desenvolvi plataformas que processam milhões de requisições, sistemas
-              de automação, dashboards analíticos e ferramentas SaaS. Cada projeto
-              é tratado como um produto real, com atenção ao detalhe e visão de
-              longo prazo.
+              Já desenvolvi plataformas que processam milhões de requisições,
+              sistemas de automação, dashboards analíticos e ferramentas SaaS.
+              Cada projeto é tratado como um produto real, com atenção ao
+              detalhe e visão de longo prazo.
             </p>
           </motion.div>
 
@@ -109,7 +134,10 @@ export function About() {
                 className="group bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-100 dark:border-zinc-700/50 rounded-2xl p-6 hover:border-indigo-400 dark:hover:border-indigo-600 hover:shadow-lg dark:hover:shadow-indigo-900/20 transition-all"
               >
                 <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center mb-4 group-hover:bg-indigo-600 dark:group-hover:bg-indigo-500 transition-colors">
-                  <Icon size={20} className="text-indigo-600 dark:text-indigo-400 group-hover:text-white transition-colors" />
+                  <Icon
+                    size={20}
+                    className="text-indigo-600 dark:text-indigo-400 group-hover:text-white transition-colors"
+                  />
                 </div>
                 <h3 className="font-semibold text-zinc-900 dark:text-white text-sm mb-1.5">
                   {v.title}
@@ -121,7 +149,6 @@ export function About() {
             );
           })}
         </motion.div>
-
       </div>
     </section>
   );
