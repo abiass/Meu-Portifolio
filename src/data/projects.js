@@ -90,6 +90,15 @@ export const projects = [
     demo: null,
     featured: false,
   },
+  {
+    id: 8,
+    title: 'Validação de Cobertura FTTH',
+    description: 'Ferramenta de validação de cobertura FTTH com consulta GPON para verificar disponibilidade de fibra e agilizar o processo de análise técnica. Repositório público com automação de coleta e validação de dados de rede.',
+    stack: ['Python', 'Node.js', 'Automação','Docker', 'PostgreSQL'],
+    github: 'https://github.com/abiass/validar_cobertura_ftth',
+    demo: null,
+    featured: false,
+  },
 ];
 
 export const skills = {
