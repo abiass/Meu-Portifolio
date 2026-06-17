@@ -7,7 +7,7 @@ const contactLinks = [
   {
     label: "LinkedIn",
     value: "linkedin.com/in/abiasmelo",
-    href: "www.linkedin.com/in/abiasmelo",
+    href: "https://linkedin.com/in/abiasmelo",
     icon: FaLinkedin,
     accent: "hover:border-blue-500 dark:hover:border-blue-400",
     iconColor: "#0a66c2",
