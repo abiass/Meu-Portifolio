@@ -39,7 +39,7 @@ export function Hero() {
 
   const socialLinks = [
     { name: "GitHub", icon: FaGithub, url: "https://github.com/abiass" },
-    { name: "LinkedIn", icon: FaLinkedin, url: "https://www.linkedin.com/in/abias-samuel-0927aa196/" },
+    { name: "LinkedIn", icon: FaLinkedin, url: "https://www.linkedin.com/in/abiasmelo" },
     { name: "Email", icon: HiMail, url: "mailto:abias.melo@hotmail.com" },
   ];
 
