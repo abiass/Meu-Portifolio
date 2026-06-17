@@ -11,7 +11,7 @@ const navLinks = [
 
 const socialLinks = [
   { label: "GitHub", icon: FaGithub, href: "https://github.com/abiass" },
-  { label: "LinkedIn", icon: FaLinkedin, href: "https://www.linkedin.com/in/abias-samuel-0927aa196/" },
+  { label: "LinkedIn", icon: FaLinkedin, href: "www.linkedin.com/in/abiasmelo" },
   { label: "E-mail", icon: HiMail, href: "mailto:abias.melo@hotmail.com" },
 ];
 
