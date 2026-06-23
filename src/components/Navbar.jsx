@@ -31,13 +31,13 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
           <motion.div
-            className="flex items-center justify-center rounded-full bg-transparent h-10 w-26"
+            className="flex items-center justify-center rounded-full bg-transparent h-10 w-10"
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src={isDark ? "/icon%20-%20Copia.png" : "/icon.png"}
+              src="/icon - Copia.png"
               alt="Logo do portfólio"
-              className="h-24 w-24 object-cover rounded-full cursor-pointer"
+              className="h-10 w-10 object-contain rounded-full cursor-pointer"
               onClick={() => scrollToSection("hero")}
             />
           </motion.div>
