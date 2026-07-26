@@ -21,6 +21,7 @@ import {
   SiVite,
   SiWhatsapp,
   SiTelegram,
+  SiNginx,
 } from 'react-icons/si';
 
 export const skillsWithIcons = {
@@ -70,6 +71,8 @@ export const stackIcons = {
   'Telegram API': SiTelegram,
   'Python': FaPython,
   'Flask': SiFlask,
+  'Python (Flask)': SiFlask,
+  'Nginx': SiNginx,
   'MySQL': SiMysql,
   'Docker': FaDocker,
   'Linux': FaLinux,

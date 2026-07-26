@@ -88,7 +88,13 @@ export function Projects() {
   };
 
   const featuredProjects = projects.filter((p) => p.featured);
-  const otherProjects = projects.filter((p) => !p.featured);
+  // Cards com prévia do site vão primeiro: como o grid estica os cards de uma
+  // mesma linha até a altura do maior, misturar card com capa e sem capa deixa
+  // um vazio grande no menor. Agrupados, cada linha fica homogênea.
+  const otherProjects = [
+    ...projects.filter((p) => !p.featured && p.cover),
+    ...projects.filter((p) => !p.featured && !p.cover),
+  ];
 
   return (
     <section id="projects" className="py-28 bg-zinc-50 dark:bg-zinc-900/50">
@@ -131,9 +137,21 @@ export function Projects() {
             className="mb-14"
           >
             <div className="bg-white dark:bg-zinc-700 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all border-l-4 border-indigo-600 dark:border-indigo-500">
-              {/* Carrossel de imagens — largura total */}
-              {featuredProject.images && featuredProject.images.length > 0 && (
+              {/* Carrossel de imagens — largura total. Sem galeria, cai na
+                  prévia do site (cover), quando houver. */}
+              {featuredProject.images && featuredProject.images.length > 0 ? (
                 <ImageCarousel images={featuredProject.images} />
+              ) : (
+                featuredProject.cover && (
+                  <div className="w-full aspect-[16/9] md:aspect-[2/1] overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img
+                      src={featuredProject.cover}
+                      alt={`Prévia do site ${featuredProject.title}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                )
               )}
               {/* Conteúdo abaixo */}
               <div className="p-8 md:p-10">
