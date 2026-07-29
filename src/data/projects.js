@@ -114,6 +114,15 @@ export const projects = [
     demo: null,
     featured: false,
   },
+  {
+    id: 12,
+    title: 'Consulta GPON Velox',
+    description: 'Aplicação fullstack para importação e consulta de cobertura GPON. Backend em Node.js/Express com Prisma e autenticação JWT, upload e processamento de planilhas Excel via Multer/ExcelJS, exportações e filtros por API REST. Frontend em HTML/Tailwind CSS. Implantação com Docker Compose (backend + frontend + PostgreSQL).',
+    stack: ['Node.js', 'Express', 'Prisma', 'PostgreSQL', 'JWT', 'ExcelJS', 'Docker', 'Tailwind CSS'],
+    github: 'https://github.com/abiass/CONSULTA_BASES',
+    demo: 'https://bases.veloxconsultoria.com.br',
+    featured: true,
+  },
 ];
 
 export const skills = {

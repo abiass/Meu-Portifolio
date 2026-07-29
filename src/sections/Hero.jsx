@@ -3,6 +3,7 @@ import { FaReact, FaNode, FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiPostgresql, SiPython } from "react-icons/si";
 import { HiMail } from "react-icons/hi";
 import { Button } from "../components/Button";
+import { HeroFlow } from "../components/HeroFlow";
 
 export function Hero() {
   const containerVariants = {
@@ -153,63 +154,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="hidden md:flex items-center justify-center relative"
           >
-            {/* Decorative Code/Tech Illustration */}
-            <div className="relative w-full h-[500px]">
-              {/* Floating Cards with Tech Stack */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-0 bg-gradient-to-br from-indigo-500 to-purple-600 p-6 rounded-2xl shadow-2xl w-64 transform rotate-3"
-              >
-                <div className="text-white">
-                  <div className="text-sm font-mono mb-2 opacity-70">const developer = {'{'}</div>
-                  <div className="pl-4 space-y-1 text-sm font-mono">
-                    <div>name: <span className="text-yellow-300">"Abias"</span>,</div>
-                    <div>role: <span className="text-green-300">"Fullstack"</span>,</div>
-                    <div>skills: <span className="text-blue-300">["React", "Node"]</span></div>
-                  </div>
-                  <div className="text-sm font-mono opacity-70">{'}'}</div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-0 left-0 bg-gradient-to-br from-pink-500 to-orange-500 p-6 rounded-2xl shadow-2xl w-64 transform -rotate-3"
-              >
-                <div className="text-white">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-3 h-3 rounded-full bg-white"></div>
-                    <div className="text-sm font-semibold">Backend API</div>
-                  </div>
-                  <div className="space-y-2 text-xs font-mono">
-                    <div className="flex items-center gap-2">
-                      <span className="text-green-300">✓</span> PostgreSQL
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-green-300">✓</span> REST APIs
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-green-300">✓</span> Authentication
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-2xl border-2 border-indigo-200 dark:border-indigo-800"
-              >
-                <div className="text-center">
-                  <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <FaReact className="text-white text-4xl animate-spin" style={{ animationDuration: '3s' }} />
-                  </div>
-                  <div className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Building</div>
-                  <div className="text-xs text-zinc-500 dark:text-zinc-400">Amazing Products</div>
-                </div>
-              </motion.div>
-            </div>
+            {/* Interactive Tech Stack Diagram */}
+            <HeroFlow />
           </motion.div>
         </div>
       </div>

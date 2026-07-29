@@ -145,6 +145,29 @@ html.dark ::selection {
   }
 }
 
+/* React Flow controls: override inherited currentColor so icons stay visible in dark mode */
+.react-flow__controls-button {
+  background: #ffffff;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.react-flow__controls-button svg {
+  fill: #3f3f46;
+}
+
+html.dark .react-flow__controls-button {
+  background: #27272a;
+  border-bottom: 1px solid #3f3f46;
+}
+
+html.dark .react-flow__controls-button:hover {
+  background: #3f3f46;
+}
+
+html.dark .react-flow__controls-button svg {
+  fill: #e4e4e7;
+}
+
 /* Section separator utility */
 .section-divider {
   width: 40px;
