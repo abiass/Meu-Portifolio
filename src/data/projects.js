@@ -116,8 +116,8 @@ export const projects = [
   },
   {
     id: 12,
-    title: 'Consulta GPON Velox',
-    description: 'Aplicação fullstack para importação e consulta de cobertura GPON. Backend em Node.js/Express com Prisma e autenticação JWT, upload e processamento de planilhas Excel via Multer/ExcelJS, exportações e filtros por API REST. Frontend em HTML/Tailwind CSS. Implantação com Docker Compose (backend + frontend + PostgreSQL).',
+    title: 'Consulta Bases Velox',
+    description: 'Aplicação fullstack para importação e consulta de bases de dados, com módulos de cobertura GPON, consulta de CNPJ na Receita Federal e consulta de operadora por número. Backend em Node.js/Express com Prisma e autenticação JWT, upload e processamento de planilhas Excel via Multer/ExcelJS, exportações e filtros por API REST. Frontend em HTML/Tailwind CSS. Implantação com Docker Compose (backend + frontend + PostgreSQL).',
     stack: ['Node.js', 'Express', 'Prisma', 'PostgreSQL', 'JWT', 'ExcelJS', 'Docker', 'Tailwind CSS'],
     images: [
       '/consultabases/consultabases1.png',
