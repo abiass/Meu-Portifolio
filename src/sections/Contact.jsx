@@ -65,7 +65,7 @@ export function Contact() {
               <h2 className="font-display text-3xl md:text-5xl font-extrabold text-zinc-900 dark:text-white leading-tight mb-4">
                 Vamos construir algo{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
-                  incrível juntos?
+                  juntos?
                 </span>
               </h2>
               <p className="text-base text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8 max-w-md">
