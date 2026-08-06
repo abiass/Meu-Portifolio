@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { ProjectCard } from "../components/ProjectCard";
+import { SectionHeader } from "../components/SectionHeader";
 import { projects } from "../data/projects";
-import { stackIcons } from "../data/skills";
 
 function ImageCarousel({ images }) {
   const [current, setCurrent] = useState(0);
@@ -11,33 +11,35 @@ function ImageCarousel({ images }) {
   const next = () => setCurrent((c) => (c + 1) % images.length);
 
   return (
-    <div className="relative w-full min-h-[280px] md:min-h-[520px] bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center overflow-hidden">
+    <div className="relative w-full min-h-[280px] md:min-h-[520px] bg-alt flex items-center justify-center overflow-hidden">
       <img
         src={images[current]}
         alt={`Screenshot ${current + 1}`}
-        className="w-full h-full object-contain transition-all duration-300"
+        className="w-full h-full object-contain"
       />
       <button
         onClick={prev}
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 transition"
+        className="absolute left-3 top-1/2 -translate-y-1/2 bg-paper/90 text-ink hover:text-accent border border-stone-200 dark:border-stone-800 p-2.5 transition-colors"
         aria-label="Imagem anterior"
       >
-        <FaChevronLeft size={14} />
+        <FaChevronLeft size={12} />
       </button>
       <button
         onClick={next}
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 transition"
+        className="absolute right-3 top-1/2 -translate-y-1/2 bg-paper/90 text-ink hover:text-accent border border-stone-200 dark:border-stone-800 p-2.5 transition-colors"
         aria-label="Próxima imagem"
       >
-        <FaChevronRight size={14} />
+        <FaChevronRight size={12} />
       </button>
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
         {images.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`w-2 h-2 rounded-full transition ${
-              i === current ? "bg-indigo-500" : "bg-white/60 hover:bg-white"
+            className={`w-1.5 h-1.5 rounded-full transition-colors ${
+              i === current
+                ? "bg-accent"
+                : "bg-stone-400/60 hover:bg-stone-400"
             }`}
             aria-label={`Ir para imagem ${i + 1}`}
           />
@@ -47,46 +49,30 @@ function ImageCarousel({ images }) {
   );
 }
 
-function TechStack({ techs, className = "" }) {
+function ProjectLink({ href, children }) {
   return (
-    <div className={`flex flex-wrap gap-2 ${className}`}>
-      {techs.map((tech, idx) => {
-        const Icon = stackIcons[tech];
-        return (
-          <div
-            key={idx}
-            className="flex items-center gap-1 px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg font-medium text-xs"
-            title={tech}
-          >
-            {Icon && <Icon size={14} />}
-            {tech}
-          </div>
-        );
-      })}
-    </div>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-mono text-xs uppercase tracking-widest text-ink hover:text-accent transition-colors"
+    >
+      {children} ↗
+    </a>
   );
 }
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 export function Projects() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   const featuredProjects = projects.filter((p) => p.featured);
   // Cards com prévia do site vão primeiro: como o grid estica os cards de uma
   // mesma linha até a altura do maior, misturar card com capa e sem capa deixa
@@ -97,161 +83,94 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-28 bg-zinc-50 dark:bg-zinc-900/50">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
-        {/* Section Label */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-4"
-        >
-          <span className="text-xs font-bold tracking-widest text-indigo-500 dark:text-indigo-400 uppercase">
-            03 — Projetos
-          </span>
-          <span className="flex-1 h-px bg-indigo-200 dark:bg-indigo-900 max-w-[80px]" />
-        </motion.div>
+    <section id="projects" className="py-24 bg-paper">
+      <div className="max-w-6xl mx-auto px-6">
+        <SectionHeader number="03" label="Projetos">
+          O que já <em className="text-accent">construí</em>
+        </SectionHeader>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="font-display text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-14"
-        >
-          O que já{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
-            construí
-          </span>
-        </motion.h2>
-
-        {/* Featured Projects */}
-        {featuredProjects.map((featuredProject) => (
-          <motion.div
-            key={featuredProject.id}
+        {/* Projetos em destaque */}
+        {featuredProjects.map((project, idx) => (
+          <Motion.article
+            key={project.id}
             variants={itemVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-14"
+            className="mb-12 border border-stone-200 dark:border-stone-800 bg-paper"
           >
-            <div className="bg-white dark:bg-zinc-700 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all border-l-4 border-indigo-600 dark:border-indigo-500">
-              {/* Carrossel de imagens — largura total. Sem galeria, cai na
-                  prévia do site (cover), quando houver. */}
-              {featuredProject.images && featuredProject.images.length > 0 ? (
-                <ImageCarousel images={featuredProject.images} />
-              ) : (
-                featuredProject.cover && (
-                  <div className="w-full aspect-[16/9] md:aspect-[2/1] overflow-hidden bg-zinc-100 dark:bg-zinc-900">
-                    <img
-                      src={featuredProject.cover}
-                      alt={`Prévia do site ${featuredProject.title}`}
-                      loading="lazy"
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                )
-              )}
-              {/* Conteúdo abaixo */}
-              <div className="p-8 md:p-10">
-                <div className="flex flex-col md:items-start md:gap-10">
-                  {/* Texto */}
-                  <div className="flex-1 mb-6 md:mb-0">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="px-4 py-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white text-xs font-bold rounded-full tracking-wide">
-                        DESTAQUE
-                      </span>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-3">
-                      {featuredProject.title}
-                    </h3>
-                    <p className="text-zinc-700 dark:text-zinc-300 text-base leading-relaxed">
-                      {featuredProject.description}
-                    </p>
-                  </div>
-                  {/* Stack + Botões */}
-                  <div className="md:w-auto shrink-0 flex flex-col gap-5">
-                    <TechStack
-                      techs={featuredProject.stack}
-                      className="md:justify-end"
-                    />
-                    <div className="flex gap-4 items-center flex-wrap">
-                      {featuredProject.github && (
-                        <motion.a
-                          href={featuredProject.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-6 py-3 bg-zinc-900 dark:bg-zinc-600 text-white text-sm font-semibold rounded-lg hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 transition-all shadow inline-block"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          GitHub
-                        </motion.a>
-                      )}
-                      {featuredProject.demo && (
-                        <motion.a
-                          href={featuredProject.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl inline-block"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          Ver Deploy
-                        </motion.a>
-                      )}
-                      {featuredProject.whatsapp && (
-                        <motion.a
-                          href={featuredProject.whatsapp}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-6 py-3 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-500 transition-all shadow inline-block"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          Grupo WhatsApp
-                        </motion.a>
-                      )}
-                      {featuredProject.telegram && (
-                        <motion.a
-                          href={featuredProject.telegram}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-6 py-3 bg-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-blue-400 transition-all shadow inline-block"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          Grupo Telegram
-                        </motion.a>
-                      )}
-                      {!featuredProject.demo &&
-                        !featuredProject.whatsapp &&
-                        !featuredProject.telegram && (
-                          <span className="text-zinc-500 dark:text-zinc-400 italic text-sm">
-                            Em processo de validação para deploy
-                          </span>
-                        )}
-                    </div>
-                  </div>
+            {project.images && project.images.length > 0 ? (
+              <ImageCarousel images={project.images} />
+            ) : (
+              project.cover && (
+                <div className="w-full aspect-[16/9] md:aspect-[2/1] overflow-hidden bg-alt border-b border-stone-200 dark:border-stone-800">
+                  <img
+                    src={project.cover}
+                    alt={`Prévia do site ${project.title}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
+              )
+            )}
+
+            <div className="p-8 md:p-10">
+              <div className="flex items-baseline gap-4 mb-4">
+                <span className="font-mono text-xs text-accent">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <span className="font-mono text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400">
+                  Destaque
+                </span>
+              </div>
+
+              <h3 className="font-display font-semibold text-2xl md:text-3xl text-ink mb-4">
+                {project.title}
+              </h3>
+
+              <p className="text-stone-600 dark:text-stone-400 leading-relaxed max-w-3xl mb-6">
+                {project.description}
+              </p>
+
+              <p className="font-mono text-xs text-stone-500 leading-relaxed mb-8">
+                {project.stack.join(" · ")}
+              </p>
+
+              <div className="flex gap-8 flex-wrap pt-5 border-t border-stone-100 dark:border-stone-900">
+                {project.github && (
+                  <ProjectLink href={project.github}>GitHub</ProjectLink>
+                )}
+                {project.demo && (
+                  <ProjectLink href={project.demo}>Ver deploy</ProjectLink>
+                )}
+                {project.whatsapp && (
+                  <ProjectLink href={project.whatsapp}>Grupo WhatsApp</ProjectLink>
+                )}
+                {project.telegram && (
+                  <ProjectLink href={project.telegram}>Grupo Telegram</ProjectLink>
+                )}
+                {!project.demo && !project.whatsapp && !project.telegram && !project.github && (
+                  <span className="font-mono text-xs text-stone-400 dark:text-stone-600">
+                    Em processo de validação para deploy
+                  </span>
+                )}
               </div>
             </div>
-          </motion.div>
+          </Motion.article>
         ))}
 
-        {/* Other Projects */}
-        <motion.div
+        {/* Demais projetos */}
+        <Motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-2 gap-7"
+          className="grid md:grid-cols-2 gap-6"
         >
           {otherProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

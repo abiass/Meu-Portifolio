@@ -1,112 +1,65 @@
-import { motion } from "framer-motion";
-import { stackIcons } from "../data/skills";
+import { motion as Motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+function ProjectLink({ href, children }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-mono text-xs uppercase tracking-widest text-ink hover:text-accent transition-colors"
+    >
+      {children} ↗
+    </a>
+  );
+}
 
 export function ProjectCard({ project }) {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
-    <motion.div
+    <Motion.article
       variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      whileHover={{ y: -5, scale: 1.02 }}
-      className="group bg-white dark:bg-zinc-800 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all shadow-lg hover:shadow-xl dark:shadow-lg dark:hover:shadow-xl flex flex-col"
+      className="group border border-stone-200 dark:border-stone-800 bg-paper flex flex-col"
     >
       {project.cover && (
-        <div className="aspect-[16/9] overflow-hidden bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-700">
+        <div className="aspect-[16/9] overflow-hidden bg-alt border-b border-stone-200 dark:border-stone-800">
           <img
             src={project.cover}
             alt={`Prévia do site ${project.title}`}
             loading="lazy"
-            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-cover object-top"
           />
         </div>
       )}
 
       <div className="p-7 flex flex-col flex-1">
-        <h3 className="text-xl font-bold mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors text-zinc-900 dark:text-white break-normal whitespace-normal">
+        <h3 className="font-display font-semibold text-xl text-ink mb-3">
           {project.title}
         </h3>
 
-        <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-5 leading-relaxed break-normal whitespace-normal">
+        <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-5">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.stack.map((tech, idx) => {
-            const Icon = stackIcons[tech];
-            return (
-              <div
-                key={idx}
-                className="flex items-center gap-1 px-3 py-1.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs rounded-lg font-medium border border-indigo-200 dark:border-indigo-800/30 hover:border-indigo-400 dark:hover:border-indigo-600 transition-colors"
-                title={tech}
-              >
-                {Icon && <Icon size={13} />}
-                <span>{tech}</span>
-              </div>
-            );
-          })}
-        </div>
+        <p className="font-mono text-xs text-stone-500 dark:text-stone-500 leading-relaxed mb-6">
+          {project.stack.join(" · ")}
+        </p>
 
-        <div className="flex gap-3 mt-auto">
-        {project.github && (
-          <motion.a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 py-2.5 px-4 bg-zinc-900 dark:bg-zinc-700 text-white text-sm font-semibold rounded-lg hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 transition-all text-center shadow-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            GitHub
-          </motion.a>
-        )}
-        {project.demo && (
-          <motion.a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 py-2.5 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-all text-center shadow-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Deploy
-          </motion.a>
-        )}
-        {project.whatsapp && (
-          <motion.a
-            href={project.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 py-2.5 px-4 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-500 transition-all text-center shadow-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            WhatsApp
-          </motion.a>
-        )}
-        {project.telegram && (
-          <motion.a
-            href={project.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 py-2.5 px-4 bg-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-blue-400 transition-all text-center shadow-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Telegram
-          </motion.a>
-        )}
+        <div className="flex gap-6 mt-auto pt-4 border-t border-stone-100 dark:border-stone-900">
+          {project.github && <ProjectLink href={project.github}>GitHub</ProjectLink>}
+          {project.demo && <ProjectLink href={project.demo}>Deploy</ProjectLink>}
+          {project.whatsapp && <ProjectLink href={project.whatsapp}>WhatsApp</ProjectLink>}
+          {project.telegram && <ProjectLink href={project.telegram}>Telegram</ProjectLink>}
+          {!project.github && !project.demo && !project.whatsapp && !project.telegram && (
+            <span className="font-mono text-xs text-stone-400 dark:text-stone-600">
+              Uso interno — sem deploy público
+            </span>
+          )}
         </div>
       </div>
-    </motion.div>
+    </Motion.article>
   );
 }

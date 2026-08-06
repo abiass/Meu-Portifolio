@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useTheme } from "../hooks/useTheme";
 
@@ -6,18 +5,12 @@ export function ThemeToggle() {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <motion.button
+    <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg bg-gradient-to-r from-indigo-200 to-purple-200 dark:from-zinc-700 dark:to-zinc-900 text-zinc-900 dark:text-yellow-300 hover:opacity-90 transition-all"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      aria-label="Toggle theme"
+      className="p-2 text-stone-500 dark:text-stone-400 hover:text-accent dark:hover:text-accent transition-colors"
+      aria-label="Alternar tema"
     >
-      {isDark ? (
-        <FaSun size={20} className="text-yellow-400" />
-      ) : (
-        <FaMoon size={20} className="text-indigo-600" />
-      )}
-    </motion.button>
+      {isDark ? <FaSun size={16} /> : <FaMoon size={16} />}
+    </button>
   );
 }

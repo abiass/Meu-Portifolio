@@ -1,40 +1,22 @@
 import { useState, useEffect } from "react";
 
+function getInitialDark() {
+  if (typeof window === "undefined") return false;
+  const saved = localStorage.getItem("theme");
+  if (saved) return saved === "dark";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
 export function useTheme() {
-  const [isDark, setIsDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(getInitialDark);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const shouldBeDark = saved ? saved === "dark" : prefersDark;
-
-    setIsDark(shouldBeDark);
-    setMounted(true);
-
-    const root = document.documentElement;
-    if (shouldBeDark) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-
     localStorage.setItem("theme", isDark ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
 
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  }, [isDark, mounted]);
-
+  // Cada componente que chama useTheme tem estado próprio; o evento
+  // customizado mantém todas as instâncias sincronizadas.
   useEffect(() => {
     const handleThemeChange = (event) => {
       if (event?.detail?.isDark != null) {
@@ -54,5 +36,5 @@ export function useTheme() {
     );
   };
 
-  return { isDark, toggleTheme, mounted };
+  return { isDark, toggleTheme };
 }

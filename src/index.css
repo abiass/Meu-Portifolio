@@ -2,10 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ---------------------------------------------------------------
+   Paleta: papel/tinta + um único acento (vermillion).
+   Tudo deriva destas variáveis — trocar o acento é trocar 2 linhas.
+   --------------------------------------------------------------- */
+:root {
+  --paper: #faf9f7;
+  --paper-alt: #f2f1ee;
+  --ink: #1c1917;
+  --accent: #c73e1d;
+}
+
+html.dark {
+  --paper: #0e0d0b;
+  --paper-alt: #171512;
+  --ink: #e7e5e4;
+  --accent: #ff6a3d;
 }
 
 html {
@@ -13,129 +25,57 @@ html {
 }
 
 body {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  background-color: white;
-  color: #18181b;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-size: 1rem;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
   line-height: 1.6;
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-html.dark body {
-  background-color: #09090b;
-  color: #fafafa;
-}
-
-/* custom CSS variables for theming */
-:root {
-  --accent-light: #4f46e5;
-  --accent-dark: #6366f1;
-  --bg-alt-light: #f3f4f6;
-  --bg-alt-dark: #1f2937;
-}
-
-html.dark {
-  --accent: var(--accent-dark);
-  --bg-alt: var(--bg-alt-dark);
-}
-
-html:not(.dark) {
-  --accent: var(--accent-light);
-  --bg-alt: var(--bg-alt-light);
-}
-
-/* utility class to apply alternate BG color */
 .bg-alt {
-  background-color: var(--bg-alt);
-  transition: background-color 0.3s ease;
+  background-color: var(--paper-alt);
 }
 
-/* smooth color transitions for all text and backgrounds */
-* {
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-
-/* Scrollbar Styling */
+/* Scrollbar discreta, neutra */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(79, 70, 229, 0.6);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(79, 70, 229, 0.8);
-}
-
-html.dark ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
+  background: #a8a29e;
+  border-radius: 5px;
+  border: 2px solid var(--paper);
 }
 
 html.dark ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.6);
+  background: #44403c;
 }
 
-html.dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.8);
-}
-
-/* Animation Classes */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-in;
-}
-
-.animate-slideUp {
-  animation: slideUp 0.5s ease-out;
-}
-
-/* Selection Styling */
 ::selection {
-  background-color: rgba(79, 70, 229, 0.3);
-  color: inherit;
+  background-color: var(--accent);
+  color: var(--paper);
 }
 
-html.dark ::selection {
-  background-color: rgba(99, 102, 241, 0.3);
-}
-
-/* Focus ring for keyboard navigation */
 :focus-visible {
-  outline: 2px solid #6366f1;
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 4px;
 }
 
-/* Reduced-motion support */
+/* Divisor de seção: traço sólido no acento */
+.section-divider {
+  width: 2.5rem;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -143,36 +83,4 @@ html.dark ::selection {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* React Flow controls: override inherited currentColor so icons stay visible in dark mode */
-.react-flow__controls-button {
-  background: #ffffff;
-  border-bottom: 1px solid #e4e4e7;
-}
-
-.react-flow__controls-button svg {
-  fill: #3f3f46;
-}
-
-html.dark .react-flow__controls-button {
-  background: #27272a;
-  border-bottom: 1px solid #3f3f46;
-}
-
-html.dark .react-flow__controls-button:hover {
-  background: #3f3f46;
-}
-
-html.dark .react-flow__controls-button svg {
-  fill: #e4e4e7;
-}
-
-/* Section separator utility */
-.section-divider {
-  width: 40px;
-  height: 3px;
-  border-radius: 9999px;
-  background: linear-gradient(to right, #6366f1, #a855f7);
-  margin-bottom: 1.5rem;
 }

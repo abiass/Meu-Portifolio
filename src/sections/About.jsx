@@ -1,154 +1,121 @@
-import { motion } from "framer-motion";
-import { FiCode, FiServer, FiShield, FiZap } from "react-icons/fi";
+import { motion as Motion } from "framer-motion";
+import { SectionHeader } from "../components/SectionHeader";
 
 const stats = [
-  { value: "2+", label: "Anos de Experiência" },
-  { value: "10+", label: "Projetos Entregues" },
-  { value: "5+", label: "Tecnologias Dominadas" },
+  { value: "2+", label: "Anos de experiência" },
+  { value: "10+", label: "Projetos entregues" },
+  { value: "5+", label: "Tecnologias dominadas" },
 ];
 
 const values = [
   {
-    icon: FiCode,
-    title: "Código Limpo",
+    index: "01",
+    title: "Código limpo",
     desc: "Arquitetura organizada, legível e escalável.",
   },
   {
-    icon: FiServer,
-    title: "Backend Sólido",
+    index: "02",
+    title: "Backend sólido",
     desc: "APIs seguras, performáticas e bem documentadas.",
   },
   {
-    icon: FiShield,
+    index: "03",
     title: "Segurança",
-    desc: "Autenticação, validação e boas práticas de segurança.",
+    desc: "Autenticação, validação e boas práticas em cada camada.",
   },
   {
-    icon: FiZap,
-    title: "Entrega Rápida",
+    index: "04",
+    title: "Entrega rápida",
     desc: "CI/CD, deploys automatizados e iterações ágeis.",
   },
 ];
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 export function About() {
   return (
-    <section id="about" className="py-28 bg-white dark:bg-zinc-950">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
-        {/* Section Label */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-4"
-        >
-          <span className="text-xs font-bold tracking-widest text-indigo-500 dark:text-indigo-400 uppercase">
-            01 — Sobre Mim
-          </span>
-          <span className="flex-1 h-px bg-indigo-200 dark:bg-indigo-900 max-w-[80px]" />
-        </motion.div>
+    <section id="about" className="py-24 bg-paper">
+      <div className="max-w-6xl mx-auto px-6">
+        <SectionHeader number="01" label="Sobre mim">
+          Construindo soluções que{" "}
+          <em className="text-accent">fazem diferença</em>
+        </SectionHeader>
 
-        {/* Title + Intro */}
-        <div className="grid md:grid-cols-2 gap-12 mb-16 items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 mb-20">
+          <Motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="space-y-4 text-stone-600 dark:text-stone-400 leading-relaxed"
           >
-            <h2 className="font-display text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white leading-tight mb-6">
-              Construindo soluções que{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
-                fazem diferença
-              </span>
-            </h2>
-            <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+            <p>
               Sou um Desenvolvedor Full Stack com foco em sistemas corporativos
               de alto impacto. Trabalho da concepção à produção, do banco de
-              dados à interface e sempre com foco em{" "}
-              <strong className="text-zinc-900 dark:text-white">
-                qualidade
-              </strong>
-              ,{" "}
-              <strong className="text-zinc-900 dark:text-white">
-                segurança
-              </strong>{" "}
-              e{" "}
-              <strong className="text-zinc-900 dark:text-white">
-                performance
-              </strong>
-              .
+              dados à interface — sempre com foco em{" "}
+              <strong className="text-ink font-medium">qualidade</strong>,{" "}
+              <strong className="text-ink font-medium">segurança</strong> e{" "}
+              <strong className="text-ink font-medium">performance</strong>.
             </p>
-            <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <p>
               Já desenvolvi plataformas que processam milhões de requisições,
               sistemas de automação, dashboards analíticos e ferramentas SaaS.
               Cada projeto é tratado como um produto real, com atenção ao
               detalhe e visão de longo prazo.
             </p>
-          </motion.div>
+          </Motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
+          {/* Stats tipográficos: número grande em Fraunces, sem cards */}
+          <Motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="grid grid-cols-2 gap-5"
+            className="grid grid-cols-3 gap-6 self-start"
           >
-            {stats.map((stat, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.04 }}
-                className="bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-100 dark:border-zinc-700/50 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-300 dark:hover:border-indigo-700 transition-all"
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="border-t border-stone-200 dark:border-stone-800 pt-4"
               >
-                <span className="font-display text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+                <span className="font-display font-semibold text-4xl md:text-5xl text-accent block">
                   {stat.value}
                 </span>
-                <span className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 leading-snug">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-stone-500 dark:text-stone-400 mt-2 block leading-snug">
                   {stat.label}
                 </span>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </Motion.div>
         </div>
 
-        {/* Values Grid */}
-        <motion.div
+        {/* Princípios: índice em mono + fio fino, sem ícones nem cards */}
+        <Motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ staggerChildren: 0.12 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          transition={{ staggerChildren: 0.1 }}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10"
         >
-          {values.map((v, i) => {
-            const Icon = v.icon;
-            return (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                className="group bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-100 dark:border-zinc-700/50 rounded-2xl p-6 hover:border-indigo-400 dark:hover:border-indigo-600 hover:shadow-lg dark:hover:shadow-indigo-900/20 transition-all"
-              >
-                <div className="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center mb-4 group-hover:bg-indigo-600 dark:group-hover:bg-indigo-500 transition-colors">
-                  <Icon
-                    size={20}
-                    className="text-indigo-600 dark:text-indigo-400 group-hover:text-white transition-colors"
-                  />
-                </div>
-                <h3 className="font-semibold text-zinc-900 dark:text-white text-sm mb-1.5">
-                  {v.title}
-                </h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                  {v.desc}
-                </p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+          {values.map((v) => (
+            <Motion.div
+              key={v.index}
+              variants={itemVariants}
+              className="border-t border-stone-200 dark:border-stone-800 pt-4"
+            >
+              <span className="font-mono text-xs text-accent">{v.index}</span>
+              <h3 className="font-display font-semibold text-ink text-lg mt-3 mb-2">
+                {v.title}
+              </h3>
+              <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
+                {v.desc}
+              </p>
+            </Motion.div>
+          ))}
+        </Motion.div>
       </div>
     </section>
   );

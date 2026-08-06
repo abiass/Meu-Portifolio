@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 export function Button({
   children,
   variant = "primary",
@@ -10,39 +8,28 @@ export function Button({
   ...props
 }) {
   const baseStyles =
-    "font-semibold rounded-lg transition-all inline-flex items-center justify-center gap-2";
+    "font-medium inline-flex items-center justify-center gap-2 transition-colors duration-200";
 
   const variants = {
-    primary:
-      "bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white hover:opacity-90 shadow-lg hover:shadow-xl dark:shadow-lg/50",
+    primary: "bg-ink text-paper hover:bg-accent",
     secondary:
-      "border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 shadow-sm hover:shadow-md",
-    outline:
-      "border-2 border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:border-indigo-500 hover:text-indigo-600 dark:hover:border-indigo-400 dark:hover:text-indigo-400",
-    ghost:
-      "text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800",
+      "border border-stone-300 dark:border-stone-700 text-ink hover:border-accent hover:text-accent",
+    ghost: "text-ink hover:text-accent",
   };
 
   const sizes = {
     sm: "px-4 py-2 text-sm",
-    md: "px-8 py-3.5 text-base",
-    lg: "px-10 py-4 text-lg",
+    md: "px-6 py-3 text-sm",
+    lg: "px-8 py-4 text-base",
   };
 
-  const combinedClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+  const combinedClassName = `${baseStyles} ${variants[variant] ?? variants.primary} ${sizes[size]} ${className}`;
 
-  const MotionComponent = motion(href ? "a" : "button");
+  const Component = href ? "a" : "button";
 
   return (
-    <MotionComponent
-      onClick={onClick}
-      href={href}
-      className={combinedClassName}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      {...props}
-    >
+    <Component onClick={onClick} href={href} className={combinedClassName} {...props}>
       {children}
-    </MotionComponent>
+    </Component>
   );
 }
