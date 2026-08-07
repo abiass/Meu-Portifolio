@@ -55,7 +55,7 @@ export function ProjectCard({ project }) {
           {project.telegram && <ProjectLink href={project.telegram}>Telegram</ProjectLink>}
           {!project.github && !project.demo && !project.whatsapp && !project.telegram && (
             <span className="font-mono text-xs text-stone-400 dark:text-stone-600">
-              Uso interno — sem deploy público
+              Uso interno, sem deploy público
             </span>
           )}
         </div>

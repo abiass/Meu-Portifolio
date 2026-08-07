@@ -67,7 +67,7 @@ export function Hero() {
 
         <FadeIn delay={0.6}>
           <p className="mt-8 max-w-xl text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
-            Construo sistemas web corporativos de ponta a ponta — backend com
+            Construo sistemas web corporativos de ponta a ponta, backend com
             foco em segurança e performance, interfaces que resolvem o problema
             sem ruído.
           </p>
@@ -94,7 +94,7 @@ export function Hero() {
         <div className="border-t border-stone-200 dark:border-stone-800">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400">
             <span>{stack.join(" · ")}</span>
-            <span className="hidden md:block">Brasil — Remoto</span>
+            <span className="hidden md:block">Brasil · Remoto</span>
             <span className="flex gap-5">
               {socialLinks.map((social) => (
                 <a

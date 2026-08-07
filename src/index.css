@@ -4,7 +4,7 @@
 
 /* ---------------------------------------------------------------
    Paleta: papel/tinta + um único acento (vermillion).
-   Tudo deriva destas variáveis — trocar o acento é trocar 2 linhas.
+   Tudo deriva destas variáveis, trocar o acento é trocar 2 linhas.
    --------------------------------------------------------------- */
 :root {
   --paper: #faf9f7;

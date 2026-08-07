@@ -1,6 +1,6 @@
 # Grupo Promoções Bot
 
-Bot automatizado de curadoria e envio de promoções para grupos de **WhatsApp** e **Telegram**. Scrapa ofertas do Mercado Livre e da Shopee, gera links de afiliado, filtra qualidade e faz o dispatch cadenciado para os grupos — sem intervenção manual.
+Bot automatizado de curadoria e envio de promoções para grupos de **WhatsApp** e **Telegram**. Scrapa ofertas do Mercado Livre e da Shopee, gera links de afiliado, filtra qualidade e faz o dispatch cadenciado para os grupos, sem intervenção manual.
 
 ---
 
@@ -52,26 +52,26 @@ Dispatch cadenciado → WhatsApp & Telegram
 
 ### O que é marketing de afiliado?
 
-Ao divulgar um produto com um **link de afiliado**, o criador do link recebe uma comissão sobre cada venda realizada por aquele link — sem custo extra para o comprador. O bot gera esses links automaticamente para cada oferta antes de publicar no grupo.
+Ao divulgar um produto com um **link de afiliado**, o criador do link recebe uma comissão sobre cada venda realizada por aquele link, sem custo extra para o comprador. O bot gera esses links automaticamente para cada oferta antes de publicar no grupo.
 
-### Mercado Livre — Programa de Afiliados
+### Mercado Livre: Programa de Afiliados
 
 - **Como funciona:** O ML possui uma API interna (`/affiliate-program/api/v2/affiliates/createLink`) que converte qualquer URL de produto em um link rastreado.
 - **Autenticação:** Requer cookies de sessão de uma conta ML cadastrada no programa de afiliados. Esses cookies são persistidos no banco de dados (tabela `ml_cookies`) para não precisar relogar a cada reinicialização.
 - **Tag de afiliado:** Configurada via `ML_AFFILIATE_TAG` no `.env`.
 - **Comissão:** Percentual variável por categoria, pago pelo ML ao afiliado mensalmente.
-- **Fallback:** Se a API retornar erro (sessão expirada, URL não permitida, etc.), o bot usa o link direto do produto — a oferta é enviada mesmo sem rastreamento, sem interromper o fluxo.
+- **Fallback:** Se a API retornar erro (sessão expirada, URL não permitida, etc.), o bot usa o link direto do produto, a oferta é enviada mesmo sem rastreamento, sem interromper o fluxo.
 
 **Renovação de cookies ML:**
 Quando a sessão expira, é necessário logar manualmente no ML via browser, copiar os cookies (`Cookie` header) e salvar via DBeaver na tabela `botuser.ml_cookies`. O bot carrega automaticamente na próxima inicialização.
 
-### Shopee — Affiliate Open Platform
+### Shopee: Affiliate Open Platform
 
-- **Como funciona:** A Shopee fornece uma API GraphQL oficial (`open-api.affiliate.shopee.com.br/graphql`) para afiliados. Os produtos já retornam com o campo `offerLink` contendo o rastreamento embutido — não é necessário converter links manualmente.
+- **Como funciona:** A Shopee fornece uma API GraphQL oficial (`open-api.affiliate.shopee.com.br/graphql`) para afiliados. Os produtos já retornam com o campo `offerLink` contendo o rastreamento embutido, não é necessário converter links manualmente.
 - **Autenticação:** App ID + Secret cadastrados no [Shopee Affiliate Portal](https://affiliate.shopee.com.br). Configurados via `SHOPEE_APP_ID` e `SHOPEE_SECRET` no `.env`.
-- **Query usada:** `productOfferV2` — lista produtos com comissão habilitada, incluindo preço, desconto, avaliação e link de afiliado pronto.
+- **Query usada:** `productOfferV2`: lista produtos com comissão habilitada, incluindo preço, desconto, avaliação e link de afiliado pronto.
 - **Comissão:** Percentual definido por loja/produto, visível no campo `commissionRate` da API.
-- **Produtos com variação de preço:** Se o produto tem variantes com spread de preço > 30% (ex: tamanhos diferentes), o bot usa o `priceMax` como preço exibido (conservador) e o `priceDiscountRate` da API como desconto real. Se não houver `priceDiscountRate` válido, o produto é descartado — jamais são inventados descontos.
+- **Produtos com variação de preço:** Se o produto tem variantes com spread de preço > 30% (ex: tamanhos diferentes), o bot usa o `priceMax` como preço exibido (conservador) e o `priceDiscountRate` da API como desconto real. Se não houver `priceDiscountRate` válido, o produto é descartado, jamais são inventados descontos.
 
 ### Proteção contra promoções falsas
 
@@ -94,7 +94,7 @@ src/
 ├── services/
 │   ├── promotions.service.js ← Orquestra o pipeline completo de uma rodada
 │   ├── dispatcher.service.js ← Busca pendentes, formata e envia para os grupos
-│   ├── qualityFilter.js      ← Score 0–10, filtros de qualidade e categoria
+│   ├── qualityFilter.js      ← Score 0-10, filtros de qualidade e categoria
 │   ├── telegram.service.js   ← Wrapper de envio Telegram (texto + imagem)
 │   ├── whatsapp.service.js   ← Wrapper de envio WA (texto + imagem)
 │   ├── affiliate/
@@ -125,7 +125,7 @@ src/
 
 ### 1. Scraping
 
-**Mercado Livre** — 5 URLs públicas:
+**Mercado Livre**: 5 URLs públicas:
 - Ofertas do Dia (`ml_ofertas_dia`)
 - Ofertas Relâmpago (`ml_oferta_relampago`) → marcadas como `mercadolivre_flash` na coluna `source`
 - Container Geral (`ml_container_geral`)
@@ -134,7 +134,7 @@ src/
 
 Retry automático até 3 tentativas com backoff. Filtra produtos internacionais já no HTML (verifica `locationText` dos seletores de localização).
 
-**Shopee** — GraphQL `productOfferV2`:
+**Shopee**: GraphQL `productOfferV2`:
 Retorna até 1 página de produtos com `offerLink` já rastreado. Normaliza preços, detecta variações, descarta sem `priceDiscountRate`.
 
 ### 2. Deduplicação
@@ -143,7 +143,7 @@ Antes de qualquer processamento, verifica se o link já existe no banco nas últ
 
 ### 3. Filtro de qualidade
 
-Score de 0–10. Mínimo para passar: **6**. Ver seção detalhada abaixo.
+Score de 0-10. Mínimo para passar: **6**. Ver seção detalhada abaixo.
 
 ### 4. Link afiliado
 
@@ -176,10 +176,10 @@ Arquivo: `src/services/qualityFilter.js`
 
 | Dimensão | Pontos | Critério |
 |---|---|---|
-| **Utilidade** | 0–3 | 3 pts = alta utilidade (smartphone, notebook, SSD, TV…); 2 pts = média (air fryer, câmera…); 0 pts = outros |
-| **Desconto real** | 0–3 | 3 pts = ≥ 40%; 2 pts = 25–39%; 1 pt = 15–24%; 0 pts = < 15% |
-| **Popularidade** | 0–2 | Combinação de `reviews_count` e `rating` |
-| **Marca/confiança** | 0–2 | 2 pts = marca conhecida no título; 1 pt = título genérico mas produto tech |
+| **Utilidade** | 0-3 | 3 pts = alta utilidade (smartphone, notebook, SSD, TV…); 2 pts = média (air fryer, câmera…); 0 pts = outros |
+| **Desconto real** | 0-3 | 3 pts = ≥ 40%; 2 pts = 25-39%; 1 pt = 15-24%; 0 pts = < 15% |
+| **Popularidade** | 0-2 | Combinação de `reviews_count` e `rating` |
+| **Marca/confiança** | 0-2 | 2 pts = marca conhecida no título; 1 pt = título genérico mas produto tech |
 
 ### Categorias detectadas
 
@@ -225,7 +225,7 @@ Promoções `mercadolivre_flash` são ordenadas **primeiro** na fila de dispatch
 
 ### Dispatch na inicialização
 
-Ao subir o bot, além de iniciar os crons, **uma oferta é disparada imediatamente** para cada canal — sem esperar o próximo tick do cron.
+Ao subir o bot, além de iniciar os crons, **uma oferta é disparada imediatamente** para cada canal, sem esperar o próximo tick do cron.
 
 ---
 
@@ -248,7 +248,7 @@ Ao subir o bot, além de iniciar os crons, **uma oferta é disparada imediatamen
 | `source` | TEXT | Fonte: `mercadolivre`, `mercadolivre_flash`, `shopee` |
 | `category` | TEXT | Categoria detectada |
 | `image_url` | TEXT | URL da imagem do produto |
-| `rating` | NUMERIC | Avaliação média (0–5) |
+| `rating` | NUMERIC | Avaliação média (0-5) |
 | `reviews_count` | INT | Número de avaliações |
 | `sent_whatsapp` | BOOLEAN | Enviado para WA? |
 | `sent_telegram` | BOOLEAN | Enviado para Telegram? |
@@ -262,7 +262,7 @@ Registra cada rodada: status (`running`/`done`/`error`), `total_found`, `total_s
 Persiste cookies de sessão do Mercado Livre para o programa de afiliados. Recarregados automaticamente na inicialização do bot.
 
 #### `product_blacklist`
-Lista de URLs ou títulos bloqueados manualmente — nunca enviados, independente do score.
+Lista de URLs ou títulos bloqueados manualmente, nunca enviados, independente do score.
 
 ---
 
@@ -322,7 +322,7 @@ npm install
 npm run dev
 
 # 5. Escanear QR code do WhatsApp na primeira execução
-# O QR aparece no terminal — escaneie pelo WhatsApp > Aparelhos Conectados
+# O QR aparece no terminal, escaneie pelo WhatsApp > Aparelhos Conectados
 ```
 
 Na primeira execução o Baileys gera os arquivos de sessão em `./auth/`. Nas execuções seguintes, reconecta automaticamente sem precisar escanear.
@@ -360,7 +360,7 @@ docker compose up --build -d
 docker compose logs -f
 ```
 
-> **Importante:** O arquivo `.env` deve ser copiado manualmente para a VPS — nunca é versionado. A pasta `./auth` também deve ser preservada entre deploys para não precisar escanear o QR novamente.
+> **Importante:** O arquivo `.env` deve ser copiado manualmente para a VPS, nunca é versionado. A pasta `./auth` também deve ser preservada entre deploys para não precisar escanear o QR novamente.
 
 ---
 
@@ -427,10 +427,10 @@ docker compose logs -f
 
 Usar o arquivo `cleanup-fake-discounts.sql` no DBeaver:
 1. Executar a seção **DIAGNÓSTICO** para ver o estado atual
-2. **PASSO 1A** — preview de falsos descontos
-3. **PASSO 1B** — preview de produtos internacionais
-4. **PASSO 3** — limpar excesso da categoria `outros`
-5. **PASSO 2** — DELETE definitivo de fakes + internacionais
+2. **PASSO 1A**: preview de falsos descontos
+3. **PASSO 1B**: preview de produtos internacionais
+4. **PASSO 3**: limpar excesso da categoria `outros`
+5. **PASSO 2**: DELETE definitivo de fakes + internacionais
 
 ### Ver logs em produção
 
@@ -463,10 +463,10 @@ docker compose down && docker compose up --build -d
 | Node.js | 20 | Runtime |
 | @whiskeysockets/baileys | 6.7.x | WhatsApp Web API |
 | Telegraf | 4.16 | Telegram Bot API |
-| axios + cheerio | — | Scraping HTML ML |
+| axios + cheerio | - | Scraping HTML ML |
 | pg | 8.11 | PostgreSQL client |
 | node-cron | 4.2 | Agendamento |
 | pino | 9.2 | Structured logging |
 | tough-cookie | 6.x | Gerenciamento de cookies ML |
-| Docker + Alpine | — | Deploy |
+| Docker + Alpine | - | Deploy |
 | PostgreSQL | 15+ | Banco de dados |

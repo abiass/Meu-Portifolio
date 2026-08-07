@@ -43,7 +43,7 @@ export function Contact() {
               Enviar e-mail →
             </Button>
             <p className="font-mono text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 mt-10">
-              Maringá, PR — Brasil · remoto ou híbrido
+              Maringá, PR · Brasil · remoto ou híbrido
             </p>
           </Motion.div>
 

@@ -27,7 +27,7 @@ export function Footer() {
         </span>
 
         <span className="font-mono text-xs text-stone-400 dark:text-stone-600">
-          © {year} — Todos os direitos reservados
+          © {year}, Todos os direitos reservados
         </span>
       </div>
     </footer>

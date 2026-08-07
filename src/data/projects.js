@@ -108,7 +108,7 @@ export const projects = [
   {
     id: 11,
     title: 'Worker de Validação de Cobertura (Inova/Bless)',
-    description: 'Serviço Node.js que valida automaticamente a cobertura de cada pedido recebido via webhook, consultando a API de cobertura por coordenadas (lat/lng) e gravando o resultado no PostgreSQL. Opera em dois modos — backfill do histórico e polling contínuo — com concorrência controlada, rate limiting global, retry com backoff exponencial, limite de tentativas por pedido e health check HTTP.',
+    description: 'Serviço Node.js que valida automaticamente a cobertura de cada pedido recebido via webhook, consultando a API de cobertura por coordenadas (lat/lng) e gravando o resultado no PostgreSQL. Opera em dois modos (backfill do histórico e polling contínuo) com concorrência controlada, rate limiting global, retry com backoff exponencial, limite de tentativas por pedido e health check HTTP.',
     stack: ['Node.js', 'PostgreSQL', 'APIs REST', 'Docker', 'Automação'],
     github: 'https://github.com/abiass/WEBHOOK_CONSULTAR_COBERTURA_AUTOBOT_BLESS_INOVA',
     demo: null,
@@ -141,7 +141,7 @@ export const experience = [
   {
     title: 'Desenvolvedor Full Stack Júnior',
     company: 'VELOX CONSULTORIA',
-    period: '12/2025 – Atual',
+    period: '12/2025 - Atual',
     description: 'Desenvolvimento e manutenção de sistemas web corporativos com Python (Flask) e Node.js. Implementação de autenticação segura com JWT e 2FA. Modelagem e otimização de PostgreSQL.',
     highlights: [
       'Implementação de JWT e 2FA',
@@ -154,13 +154,13 @@ export const experience = [
   {
     title: 'Analista de Indicadores e Qualidade',
     company: 'VELOX CONSULTORIA',
-    period: '05/2024 – 12/2025',
+    period: '05/2024 - 12/2025',
     description: 'Desenvolvimento de dashboards automatizados para KPIs e otimização de processos internos.',
   },
   {
     title: 'Supervisor Administrativo',
     company: 'VELOX CONSULTORIA',
-    period: '06/2022 – 05/2024',
+    period: '06/2022 - 05/2024',
     description: 'Gestão de equipe e melhoria de processos operacionais.',
   },
 ];
