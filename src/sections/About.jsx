@@ -55,7 +55,7 @@ export function About() {
             <p>
               Sou um Desenvolvedor Full Stack com foco em sistemas corporativos
               de alto impacto. Trabalho da concepção à produção, do banco de
-              dados à interface — sempre com foco em{" "}
+              dados à interface, sempre com foco em{" "}
               <strong className="text-ink font-medium">qualidade</strong>,{" "}
               <strong className="text-ink font-medium">segurança</strong> e{" "}
               <strong className="text-ink font-medium">performance</strong>.

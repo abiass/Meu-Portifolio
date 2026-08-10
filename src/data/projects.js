@@ -108,7 +108,7 @@ export const projects = [
   {
     id: 11,
     title: 'Worker de Validação de Cobertura (Inova/Bless)',
-    description: 'Serviço Node.js que valida automaticamente a cobertura de cada pedido recebido via webhook, consultando a API de cobertura por coordenadas (lat/lng) e gravando o resultado no PostgreSQL. Opera em dois modos — backfill do histórico e polling contínuo — com concorrência controlada, rate limiting global, retry com backoff exponencial, limite de tentativas por pedido e health check HTTP.',
+    description: 'Serviço Node.js que valida automaticamente a cobertura de cada pedido recebido via webhook, consultando a API de cobertura por coordenadas (lat/lng) e gravando o resultado no PostgreSQL. Opera em dois modos (backfill do histórico e polling contínuo), com concorrência controlada, rate limiting global, retry com backoff exponencial, limite de tentativas por pedido e health check HTTP.',
     stack: ['Node.js', 'PostgreSQL', 'APIs REST', 'Docker', 'Automação'],
     github: 'https://github.com/abiass/WEBHOOK_CONSULTAR_COBERTURA_AUTOBOT_BLESS_INOVA',
     demo: null,
@@ -127,6 +127,27 @@ export const projects = [
     github: 'https://github.com/abiass/CONSULTA_BASES',
     demo: 'https://bases.veloxconsultoria.com',
     featured: true,
+  },
+  {
+    id: 13,
+    title: 'Sincronizador Automático de Pedidos (Info2B ↔ VivoCorp ↔ Simplifique)',
+    description:
+      'Robô que eliminou 1 hora de trabalho manual por dia de 14 funcionários, cerca de 14 horas/dia devolvidas à operação, automatizando a conferência de status de pedidos entre três sistemas sem API pública. A cada ciclo (APScheduler), exporta os pedidos do Info2B via Playwright, consulta o status real no portal Siebel da VivoCorp resolvendo o CAPTCHA de login por OCR em cascata (ddddocr → Tesseract → EasyOCR → TrOCR, com fallback manual) e cruza com a base do Simplifique (CSV/XLSX/JSON) por um motor de regras por status. Um grafo de ranking de status bloqueia retrocessos, uma lista de status bloqueados isola o que exige ação humana e um SLA de 3 dias úteis sinaliza pedidos parados. As mudanças aprovadas viram uma planilha de atualização em massa reenviada ao Info2B, com persistência em PostgreSQL (upsert idempotente por código interno + migrations incrementais), relatórios consolidados de erros/pendências em Excel e webhook autenticado que dispara o e-mail de cada responsável. Roda em modo DRY_RUN para simulação e é distribuído como executável Windows via PyInstaller.',
+    stack: [
+      'Python',
+      'Playwright',
+      'APScheduler',
+      'PostgreSQL',
+      'OCR (ddddocr/Tesseract/EasyOCR/TrOCR)',
+      'OpenCV',
+      'openpyxl',
+      'Webhook + SMTP',
+      'PyInstaller',
+      'pytest',
+    ],
+    github: null,
+    demo: null,
+    featured: false,
   },
 ];
 
