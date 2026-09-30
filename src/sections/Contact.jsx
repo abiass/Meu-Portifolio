@@ -22,9 +22,9 @@ const contactLinks = [
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 bg-alt">
+    <section id="contact" className="py-24 bg-paper">
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader number="04" label="Contato">
+        <SectionHeader number="05" label="Contato">
           Vamos construir algo <em className="text-accent">juntos?</em>
         </SectionHeader>
 

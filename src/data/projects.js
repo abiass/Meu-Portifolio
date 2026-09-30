@@ -228,6 +228,19 @@ export const projects = [
 
 export const experience = [
   {
+    title: 'Desenvolvedor Full Stack (PJ)',
+    company: 'M PERÍCIAS',
+    period: '08/2026 - Atual',
+    description: 'Desenvolvimento do módulo comercial do ERP da empresa em equipe, com Next.js, TypeScript e Supabase, fluxo de PRs com code review e deploy em staging e produção.',
+    highlights: [
+      '50+ PRs mergeados nos dois primeiros meses',
+      'Agenda de reuniões integrada ao Google Calendar e Meet',
+      'Análise de reuniões por IA com controle de custo',
+      'Rodízio de leads por SLA e dashboards comerciais',
+      'Robô de atendimento no WhatsApp integrado ao CRM',
+    ],
+  },
+  {
     title: 'Desenvolvedor Full Stack Júnior',
     company: 'VELOX CONSULTORIA',
     period: '12/2025 - Atual',
