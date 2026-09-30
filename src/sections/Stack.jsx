@@ -1,12 +1,13 @@
 import { motion as Motion } from "framer-motion";
 import { SectionHeader } from "../components/SectionHeader";
-import { skillsWithIcons } from "../data/skills";
+import { skills } from "../data/skills";
 
 const categoryMeta = {
   frontend: { label: "Front-end", number: "01" },
   backend: { label: "Back-end", number: "02" },
   database: { label: "Banco de dados", number: "03" },
-  other: { label: "Ferramentas", number: "04" },
+  ai: { label: "IA e integrações", number: "04" },
+  other: { label: "Infra e qualidade", number: "05" },
 };
 
 const itemVariants = {
@@ -16,14 +17,14 @@ const itemVariants = {
 
 export function Stack() {
   return (
-    <section id="stack" className="py-24 bg-alt">
+    <section id="stack" className="py-24 bg-paper">
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader number="02" label="Stack técnica">
+        <SectionHeader number="03" label="Stack técnica">
           Tecnologias que uso <em className="text-accent">no dia a dia</em>
         </SectionHeader>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-          {Object.entries(skillsWithIcons).map(([category, techs], catIdx) => {
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
+          {Object.entries(skills).map(([category, techs], catIdx) => {
             const meta = categoryMeta[category] || categoryMeta.other;
             return (
               <Motion.div
