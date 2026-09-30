@@ -1,23 +1,50 @@
 import { motion as Motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { ThemeToggle } from "./ThemeToggle";
 
+const navItems = [
+  { label: "Sobre", id: "about" },
+  { label: "Experiência", id: "experience" },
+  { label: "Stack", id: "stack" },
+  { label: "Projetos", id: "projects" },
+  { label: "Contato", id: "contact" },
+];
+
+/* Seção cujo topo cruzou a faixa logo abaixo da navbar */
+function useActiveSection(ids) {
+  const [active, setActive] = useState(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-20% 0px -70% 0px" },
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [ids]);
+
+  return active;
+}
+
+const sectionIds = ["hero", ...navItems.map((i) => i.id)];
+
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const active = useActiveSection(sectionIds);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
     setMobileMenuOpen(false);
   };
-
-  const navItems = [
-    { label: "Sobre", id: "about" },
-    { label: "Stack", id: "stack" },
-    { label: "Projetos", id: "projects" },
-    { label: "Contato", id: "contact" },
-  ];
 
   return (
     <>
@@ -36,9 +63,21 @@ export function Navbar() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="font-mono text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 hover:text-accent dark:hover:text-accent transition-colors"
+                  aria-current={active === item.id ? "true" : undefined}
+                  className={`relative font-mono text-xs uppercase tracking-widest transition-colors hover:text-accent ${
+                    active === item.id
+                      ? "text-ink"
+                      : "text-stone-500 dark:text-stone-400"
+                  }`}
                 >
                   {item.label}
+                  {active === item.id && (
+                    <Motion.span
+                      layoutId="nav-active"
+                      className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-accent"
+                      transition={{ type: "spring", stiffness: 400, damping: 35 }}
+                    />
+                  )}
                 </button>
               ))}
             </nav>
@@ -71,7 +110,10 @@ export function Navbar() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left py-3 font-mono text-sm uppercase tracking-widest text-stone-600 dark:text-stone-400 hover:text-accent transition-colors border-b border-stone-100 dark:border-stone-900 last:border-0"
+                  aria-current={active === item.id ? "true" : undefined}
+                  className={`text-left py-3 font-mono text-sm uppercase tracking-widest hover:text-accent transition-colors border-b border-stone-100 dark:border-stone-900 last:border-0 ${
+                    active === item.id ? "text-accent" : "text-stone-600 dark:text-stone-400"
+                  }`}
                 >
                   {item.label}
                 </button>
