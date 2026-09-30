@@ -3,8 +3,8 @@ import { SectionHeader } from "../components/SectionHeader";
 
 const stats = [
   { value: "2+", label: "Anos de experiência" },
-  { value: "10+", label: "Projetos entregues" },
-  { value: "5+", label: "Tecnologias dominadas" },
+  { value: "15+", label: "Projetos entregues" },
+  { value: "50+", label: "PRs mergeados em equipe em 2026" },
 ];
 
 const values = [
@@ -65,6 +65,16 @@ export function About() {
               sistemas de automação, dashboards analíticos e ferramentas SaaS.
               Cada projeto é tratado como um produto real, com atenção ao
               detalhe e visão de longo prazo.
+            </p>
+            <p>
+              Hoje também trabalho em equipe num ERP com{" "}
+              <strong className="text-ink font-medium">Next.js</strong>,{" "}
+              <strong className="text-ink font-medium">TypeScript</strong> e{" "}
+              <strong className="text-ink font-medium">Supabase</strong>, com
+              code review e deploy contínuo, e integro{" "}
+              <strong className="text-ink font-medium">IA</strong> em fluxos
+              reais: análise de reuniões, transcrição de áudio e robôs de
+              atendimento no WhatsApp.
             </p>
           </Motion.div>
 

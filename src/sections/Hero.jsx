@@ -32,7 +32,7 @@ function FadeIn({ children, delay = 0, className = "" }) {
   );
 }
 
-const stack = ["React", "Node.js", "PostgreSQL", "Python"];
+const stack = ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Python"];
 
 const socialLinks = [
   { name: "GitHub", url: "https://github.com/abiass" },
@@ -68,8 +68,8 @@ export function Hero() {
         <FadeIn delay={0.6}>
           <p className="mt-8 max-w-xl text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
             Construo sistemas web corporativos de ponta a ponta: backend com
-            foco em segurança e performance, interfaces que resolvem o problema
-            sem ruído.
+            foco em segurança e performance, integrações com WhatsApp e IA, e
+            interfaces que resolvem o problema sem ruído.
           </p>
         </FadeIn>
 
