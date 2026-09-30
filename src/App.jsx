@@ -19,11 +19,11 @@ function AppContent() {
         <title>Abias Melo - Desenvolvedor Fullstack | React | Node.js</title>
         <meta
           name="description"
-          content="Portfólio de Abias Melo, desenvolvedor fullstack especializado em React, Node.js e PostgreSQL. Conheça meus projetos e entre em contato."
+          content="Portfólio de Abias Melo, desenvolvedor fullstack com React, Next.js, TypeScript, Node.js e PostgreSQL. Sistemas corporativos, integrações com WhatsApp e IA. Conheça meus projetos."
         />
         <meta
           name="keywords"
-          content="Desenvolvedor Fullstack, React, Node.js, PostgreSQL, Portfólio, Web Developer"
+          content="Desenvolvedor Fullstack, React, Next.js, TypeScript, Node.js, PostgreSQL, Supabase, WhatsApp API, IA, Portfólio"
         />
         <meta name="author" content="Abias Melo" />
 
@@ -35,9 +35,9 @@ function AppContent() {
         />
         <meta
           property="og:description"
-          content="Portfólio profissional de um desenvolvedor fullstack com experiência em React, Node.js e PostgreSQL"
+          content="Portfólio profissional de um desenvolvedor fullstack com experiência em React, Next.js, Node.js, PostgreSQL e integrações com IA"
         />
-        <meta property="og:url" content="https://abias-portfolio.vercel.app" />
+        <meta property="og:url" content="https://abias.vercel.app" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
