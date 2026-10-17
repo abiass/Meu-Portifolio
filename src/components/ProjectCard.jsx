@@ -36,7 +36,7 @@ export function ProjectLinks({ project, demoLabel = "Deploy", className }) {
   );
 }
 
-/* Entregas principais: marcador quadrado no acento, como na Experiência */
+/* Entregas principais: marcador quadrado no acento */
 export function Highlights({ items, className = "" }) {
   return (
     <ul className={`grid gap-x-8 gap-y-2.5 ${className}`}>

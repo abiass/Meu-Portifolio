@@ -164,7 +164,7 @@ export function Projects() {
   return (
     <section id="projects" className="py-24 bg-alt">
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader number="04" label="Projetos">
+        <SectionHeader number="03" label="Projetos">
           O que já <em className="text-accent">construí</em>
         </SectionHeader>
 

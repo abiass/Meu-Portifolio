@@ -19,7 +19,7 @@ export function Stack() {
   return (
     <section id="stack" className="py-24 bg-paper">
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader number="03" label="Stack técnica">
+        <SectionHeader number="02" label="Stack técnica">
           Tecnologias que uso <em className="text-accent">no dia a dia</em>
         </SectionHeader>
 

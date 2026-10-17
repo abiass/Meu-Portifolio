@@ -4,7 +4,7 @@ import { SectionHeader } from "../components/SectionHeader";
 const stats = [
   { value: "2+", label: "Anos de experiência" },
   { value: "15+", label: "Projetos entregues" },
-  { value: "50+", label: "PRs mergeados em equipe em 2026" },
+  { value: "120+", label: "PRs mergeados em equipe em 2026" },
 ];
 
 const values = [
@@ -37,7 +37,7 @@ const itemVariants = {
 
 export function About() {
   return (
-    <section id="about" className="py-24 bg-paper">
+    <section id="about" className="py-24 bg-alt">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader number="01" label="Sobre mim">
           Construindo soluções que{" "}
